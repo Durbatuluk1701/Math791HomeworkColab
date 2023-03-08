@@ -94,7 +94,24 @@ Use this definition to prove the following problems.
 \prob{3}{
   Show that if $1$ is a GCD of $a$ and $b$ is and $1$ is also a GCD of $a$ and $c$, then $1$ is a GCD of $a$ and $bc$. \\
 }{ \\
-  Admitted
+  $\gcd(a,b) = 1 \implies 1 \mid a \land 1 \mid b$ and $\forall e, e \mid a \land e \mid b \implies e \mid d$.
+
+  From this, we can conclude that the only possible values $e$ could take are $1$ as $\nexists e > 1$ s.t. $e \mid d$
+
+  Similarly for $\gcd(a,c) = 1 \implies 1 \mid a \land 1 \mid b$ and $\forall e, e \mid a \land e \mid b \implies e \mid d$.
+
+  This also shows that the only possible values for $e$ are $1$.
+
+  To find $\gcd(a, bc)$ we need a value $d$ such that $d \mid a \land d \mid bc$.
+
+  $$d \mid bc \iff d \mid b \lor d \mid c$$
+
+  Combining this, we get that we need a value $d$ such that
+  $$d \mid a \land (d \mid b \lor d \mid c) \iff (d \mid a \land d \mid b) \lor (d \mid a \land d \mid c)$$
+
+  We proved earlier that for $(d \mid a \land d \mid b)$ the only values $d$ can take are $1$, and also $(d \mid a \land d \mid c)$ the only values $d$ can take are also $1$.
+
+  $$\therefore \gcd(a,bc) = 1$$
 }
 
 \prob{4}{
