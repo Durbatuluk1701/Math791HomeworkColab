@@ -1,0 +1,116 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{17}
+Let $R$ be an integral domain. In what follows, $a,b,c,d,e,f \in R$ will be non-zero, non-unit elements.
+Given $a,b \in R, d \in R$ is said to be a \emph{greatest common divisor}, or GCD, of $a$ and $b$ if the
+following conditions hold:
+\begin{enumerate}[(i)]
+  \item $d \mid a$ and $d \mid b$
+  \item Whenever $e \mid a$ and $e \mid b$, then $e \mid d$
+\end{enumerate}
+Use this definition to prove the following problems.
+
+\prob{1}{
+  Show that if GCDs exist, they are unique up to a unit multiple. \\
+}{ \\
+  Let us assume that we have two GCD's $d_1, d_2$ that are GCD's for $a$ and $b$.
+
+  This means
+  $$\exists q_1, q_1', q_2, q_2',\ a = q_1*d_1 \land a = q_2 * d_2 \land b = q_1' * d_1 \land b = q_2' * d_2$$
+
+  Let us have $ab = q_1 * d_1 * q_2' * d_2$ and $ab = q_1' * d_1 * q_2 * d_2$, we can factor out and set these equal to get $q_1 * q_2' = q_1' * q_2$
+
+  We also know by (ii) that $d_1 \mid d_2 \land d_2 \mid d_1$.
+  This implies that $d_1 = u_1 d_2 \land d_2 = u_2 d_1 \implies d_1 = u_1 u_2 d_1 \implies 1 = u_1 u_2$
+
+  Thus $u_1, u_2$ are units, which means that $d_1 = u_1 d_2 \implies $ $d_1$ and $d_2$ only differ by unit multiples.
+
+  $$\therefore \text{GCD's are unique up to a unit multiple}$$
+}
+
+\prob{2}{
+  Suppose $d_1$ is a GCD of $ab$ and $ac$, and $d_2$ is a GCD of $b$ and $c$.
+  Prove that, $d_1$ is a unit multiple of $ad_2$.
+  Use this to show that if $d$ is a GCD of $a$ and $b$, then $1$ is a GCD of $a/d$ and $b/d$ \\
+}{ \\
+  We know that $d_1 \mid ab \land d_1 \mid ac \land d_2 \mid b \land d_2 \mid c$.
+  $$d_1 = q_1 ab \land d_1 = q_2 ac \land d_2 = q_3 b \land d_2 = q_4 c$$
+  $$d_2 \mid b \implies d_2 \mid ab \land d_2 \mid c \implies d_2 \mid ac$$
+  $$\implies d_2 \mid d_1$$
+  So we can find $d_1 = q d_2$, $q_1 a b = q q_3 b \implies q_1 a = q q_3$ also $q_2 a c = q q_4 c \implies q_2 a = q q_4$
+  $$q_1 a + q_2 a = q q_3 + q q_4 \implies (q_1 + q_2) a = (q_3 + q_4) q \implies (q_1 + q_2)/(q_3 + q_4) a = q$$
+  $$d_1 = (q_1 + q_2)/(q_3 + q_4) a d_2$$
+  We need to now show that $(q_1 + q_2)/(q_3 + q_4)$ is a unit.
+
+  \admit
+
+  We can use this to prove that $1 = GCD(a/d, b/c)$
+
+  Taking $d_1 \mid a \land d_1 \mid b$, and then also $d_2 \mid ad_1' \land d_2 \mid bd_1'$, we know then that
+  $d_2 = u_1 * a * d_1$, or also $d_2 = u_2 * b * d_1$.
+  We can use this to reduce to $u_1 * a * d_1 \mid ad_1' \implies u_1 * d_1 \mid d_1' \land u_2 * b * d_1 \mid b d_1'$
+
+  Since $u_1, u_2$ are units,
+
+  \admit
+}
+
+\prob{3}{
+  Show that if $1$ is a GCD of $a$ and $b$ is and $1$ is also a GCD of $a$ and $c$, then $1$ is a GCD of $a$ and $bc$. \\
+}{ \\
+  Admitted
+}
+
+\prob{4}{
+  Show that if $R$ is a PID, and $a, b \in R$, then $d$ is a GCD of $a$ and $b$ if and only if $\langle a, b \rangle = \langle d \rangle$.
+  In particular, every two non-zero, non-uits have a GCD, and if $d$ is a GCD of $a$ and $b$, then $d = ra + sb$ for some $r, s \in R$ \\
+}{ \\
+  Admitted
+}
+
+\prob{5}{
+  Let $R = \mathbb{Q}[x,y]$ be the polynomial ring in two variables over $\mathbb{Q}$. Show that $1$ is a GCD of $x$ and $y$,
+  but there is no equation of the form $1 = f \cdot x + g \cdot y$ for $f, q \in R$ \\
+}{ \\
+  Admitted
+}
+
+
+
+\end{document}
