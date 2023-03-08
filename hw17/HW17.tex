@@ -118,7 +118,23 @@ Use this definition to prove the following problems.
   Show that if $R$ is a PID, and $a, b \in R$, then $d$ is a GCD of $a$ and $b$ if and only if $\langle a, b \rangle = \langle d \rangle$.
   In particular, every two non-zero, non-units have a GCD, and if $d$ is a GCD of $a$ and $b$, then $d = ra + sb$ for some $r, s \in R$ \\
 }{ \\
-  Admitted
+  $$\langle d \rangle = r_1 d,\ \forall r_i \in R;\
+    \langle a, b \rangle = r_a a + r_b b,\ \forall r_i \in R$$
+  Proving $d = \gcd(a,b) \implies \langle a, b \rangle = \langle d \rangle$:
+
+  If $d = \gcd(a,b) \implies d \mid a \land d \mid b$;
+  we need to show $\forall r_a, r_b \in R,\exists r_d \in R,\ r_a a + r_b b = r_d d$
+  $$r_a a + r_b b = r_d d = (r_a (d_a * d)) + (r_b (d_b * d)) = (r_d d)$$
+  $$= (r_a d_a) d + (r_b d_b) d = (r_a d_a + r_b d_b) d = (r_d) d$$
+  So if we pick $r_d := (r_a d_a + r_b d_b) \in R$ this holds
+
+  Proving $\langle a, b \rangle = \langle d \rangle \implies d = \gcd(a,b) $:
+
+  If $\langle a, b \rangle = \langle d \rangle \implies \forall r_a, r_b \in R, \exists r_d \in R, r_a a + r_b b = r_d d$; since
+  $$d \mid (r_d d) \implies d \mid (r_a a + r_b b) \implies d \mid (r_a a) \land d \mid (r_b b)$$
+
+  Since $R$ is a PID, that means that it is also a PID
+  \admit
 }
 
 \prob{5}{
