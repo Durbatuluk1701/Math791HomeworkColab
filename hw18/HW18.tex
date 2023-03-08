@@ -1,0 +1,96 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{18}
+
+The problems in this homework set deal with a special kind of PID.
+Let $R$ be a principal ideal domain with the property that, given any two prime elements, $\pi_1$ and $\pi_2$, $\langle \pi_1 \rangle = \langle \pi_2 \rangle$, i.e., up to a unit multiple, there is just one prime element, say $\pi \in R$.
+Such a ring is called a \emph{discrete valuation ring}, denoted DVR, and $\pi \in R$ is called a \emph{uniformizing parameter}.
+
+\prob{1}{
+  Fix a prime $p \in \mathbb{Z}$. Let $R$ denote the set of rational numbers whose denominators is not divisible by $p$.
+  First show that $R$ is a subring of $\mathbb{Q}$, and then show that $R$ is a DVR with uniformizing parameter $p$. \\
+}{ \\
+  \admit
+}
+
+\prob{2}{
+  Let $R$ be a DVR with uniformizing paramter $\pi \in R$. Show that $\bigcap_{n \geq 1} \langle \pi^n \rangle = 0$. \\
+}{ \\
+  \admit
+}
+
+\prob{3}{
+  Let $R$ be a DVR with uniformizing parameter $\pi \in R$. Show that every element in $R$ can be written uniquely as $u\pi^n$ for some $n \geq 0$ and $u \in R$ a unit.
+  Conclude that if $K$ dnotes the quotient field of $R$, then every element in $K$ can be written uniquely in the form $u \pi^n$ for some $n \in \mathbb{Z}$ and $u \in R$, a unit. \\
+}{ \\
+  \admit
+}
+
+\prob{4}{
+  Let $R$ be a DVR with uniformizing parameter $\pi \in R$, and quotient field $K$. Define $v : K \rightarrow \mathbb{Z} \cup \{ \infty \}$ by $v(0) = \infty$ and for $\alpha \neq 0, v(\alpha) =n$, where $\alpha \in K$ and $\alpha = u \pi^n$, as in 3. Show that for all $\alpha, \beta \in K$:
+  \begin{enumerate}[(i)]
+    \item $v(\alpha + \beta) \geq min\{ v(\alpha), v(\beta) \}$
+    \item $v(\alpha \beta) = v(\alpha) + v(\beta)$
+  \end{enumerate}
+  Observe that $R = \{ a \in K \mid v(a) \geq 0 \}$ \\
+}{ \\
+  \admit
+}
+
+\prob{5}{
+  Let $K$ be a field. Suppose $v : K \rightarrow \mathbb{Z} \cup \{ \infty \}$ is a function such that for all $\alpha, \beta \in K$:
+  \begin{enumerate}[(i)]
+    \item $v(\alpha) = \infty \iff \alpha = 0$
+    \item $v(\alpha + \beta) \geq min\{ v(\alpha), v(\beta) \}$
+    \item $v(\alpha \beta) = v(\alpha) + v(\beta)$
+  \end{enumerate}
+
+  Such a function is called a \emph{discrete valuation} on $K$.
+  We assume that $v$ takes values other than $0$ and $\infty$.
+  Set $R := \{ \alpha \in K \mid v(\alpha) \geq 0 \}$. Prove that $R$ is DVR by the following steps below:
+  \begin{enumerate}[(i)]
+    \item Show that $u \in R$ is a unit $\iff v(u) = 0$. Hint: First show $v(1) = 0$.
+    \item Show there exist element $r \in R$, with $v(r) > 0$.
+    \item Prove that if $r \in R$, and $v(r) > 0$, then as an element of $K$, $v(\frac{1}{r}) = -v(r)$.
+    \item Suppose $c := \min\{v(r) \mid r \in R \text{ and } v(r) > 0 \}$. Show that the image of $v$ is $c \mathbb{Z}$.
+    \item Show that if $\pi \in R$ and $v(\pi) = c$, then $R$ is a DVR with uniformizing parameter $\pi$.
+  \end{enumerate}
+}
+
+\end{document}
