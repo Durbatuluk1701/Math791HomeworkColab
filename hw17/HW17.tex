@@ -116,16 +116,45 @@ Use this definition to prove the following problems.
 
 \prob{4}{
   Show that if $R$ is a PID, and $a, b \in R$, then $d$ is a GCD of $a$ and $b$ if and only if $\langle a, b \rangle = \langle d \rangle$.
-  In particular, every two non-zero, non-uits have a GCD, and if $d$ is a GCD of $a$ and $b$, then $d = ra + sb$ for some $r, s \in R$ \\
+  In particular, every two non-zero, non-units have a GCD, and if $d$ is a GCD of $a$ and $b$, then $d = ra + sb$ for some $r, s \in R$ \\
 }{ \\
   Admitted
 }
 
 \prob{5}{
   Let $R = \mathbb{Q}[x,y]$ be the polynomial ring in two variables over $\mathbb{Q}$. Show that $1$ is a GCD of $x$ and $y$,
-  but there is no equation of the form $1 = f \cdot x + g \cdot y$ for $f, q \in R$ \\
+  but there is no equation of the form $1 = f \cdot x + g \cdot y$ for $f, g \in R$ \\
 }{ \\
-  Admitted
+  We know fundamentally that $1 \mid x \land 1 \mid y$ as we can write $x = 1 * x \land y = 1 * x$.
+
+  To show it is the \emph{greatest} common divisor, let us assume some divisor $\exists d \in R,$ s.t. $d > 1$.
+  $$\implies d_x \mid x \land d_y \mid y \implies x = d_x * x' \land y = d_y * y' \land d_x = d_y$$
+
+  We have two cases for each variable $x', y'$:
+
+  Assume that $a,b$ are constants in $R$ and $f, f', g, g'$ are functions comprised solely of their respective variables.
+  We also assume that any $f(x) + g(y)$ sum is not a constant (as it would fall into the constant case instead).
+
+  \begin{center}
+    \begin{tabular}{| c | c | c | c |} \hline
+      $x'$          & $y'$            & $d_x$                   & $d_y$                     \\ \hline
+      Constant $a$  & Constant $b$    & $\frac{x}{a}$           & $\frac{y}{b}$             \\ \hline
+      Constant $a$  & $f'(x) + g'(y)$ & $\frac{x}{a}$           & $\frac{y}{f'(x) + g'(y)}$ \\ \hline
+      $f(x) + g(y)$ & Constant $b$    & $\frac{x}{f(x) + g(y)}$ & $\frac{y}{a}$             \\ \hline
+      $f(x) + g(y)$ & $f'(x) + g'(y)$ & $\frac{x}{f(x) + g(y)}$ & $\frac{y}{f'(x) + g'(y)}$ \\ \hline
+    \end{tabular}
+  \end{center}
+
+  It is straightforward to see from this table that we can never reconcile $d_x = d_y$ unless we are in the case where $x' = f(x) + g(y) = x$ and $y' = f'(x) + g'(y) = y$ in which case
+  $$d_x = \frac{x}{x} = 1 = \frac{y}{y} = d_y$$
+
+  $$\therefore \gcd(x, y) = 1$$
+
+  Now, to show that no equation can be formed.
+
+  \admit
+
+  If we take $1 = \frac{1}{2*x} * x + \frac{1}{2 * y} * y$ then this equation is satisfied?
 }
 
 
