@@ -1,0 +1,158 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{13}
+
+\prob{1}{
+Let $R$ be a ring and $I \subseteq R$ a two-sided ideal. Show that there is a one-to-ono correspondence between the right (left, two-sided) ideals of $R$ containing $I$ and right (left, two-sided) ideals of $R/I$. Conclude that every right (left, two-sided) ideal of $R/I$ is of the form $J/I$ for some right (left, two-sided) ideal of $R$ containing $I$. \\
+}{ \\
+First, let's show that there is a one-to-one correspondence between the right ideals of $R$ containing $I$ and the right ideals of $R/I$:\\
+Let $J$ be a right ideal of $R$ containing $I$. Then, we claim that the set $\overline{J}={x+I: x\in J}$ is a well-defined right ideal of $R/I$.
+
+To show that $\overline{J}$ is a right ideal, let $\overline{x},\overline{y}\in\overline{J}$, where $x,y\in J$. Then, $\overline{x}=\overline{x'+i}$ and $\overline{y}=\overline{y'+j}$ for some $x',y'\in R$ and $i,j\in I$. Since $J$ is a right ideal of $R$, we have $x'y\in J$ and $ij\in I\subseteq J$. Therefore,
+$[\overline{x}\overline{y}=\overline{x'y+i(y'x+yj)}\in\overline{J}.]$ \\
+Moreover, for any $r\in R$, we have $\overline{rx}=\overline{rx+ri}\in\overline{J}$ since $rx\in J$. Thus, $\overline{J}$ is a well-defined right ideal of $R/I$.
+
+Conversely, suppose $K$ is a right ideal of $R/I$. Then, we claim that the set $J=\{x\in R: x+I\in K\}$ is a well-defined right ideal of $R$ containing $I$.
+
+To show that $J$ is a right ideal, let $x,y\in J$ and $r\in R$. Then, we have $(x+I)(y+I)=(xy+I)\in K$ by the definition of $K$. Therefore, $xy\in J$. Moreover, we have $(rx+I)=(r+I)(x+I)\in K$, so $rx\in J$. Finally, since $I$ is a two-sided ideal of $R$, we have $I\subseteq J$.
+
+It is clear that these constructions give us one-to-one correspondences between the right ideals of $R$ containing $I$ and the right ideals of $R/I$. Similar arguments hold for left ideals and two-sided ideals.
+
+Now, let $L$ be a right ideal of $R/I$. Then, there exists a right ideal $J$ of $R$ containing $I$ such that $L=\overline{J}={x+I: x\in J}$. Conversely, for any right ideal $J$ of $R$ containing $I$, we have $J/I$ is a right ideal of $R/I$, and we have $J/I=\overline{J}$. Therefore, every right ideal of $R/I$ is of the form $J/I$ for some right ideal $J$ of $R$ containing $I$. Similar arguments hold for left ideals and two-sided ideals.
+}
+
+\prob{2}{
+Suppose $J \subseteq I$ are two-sided ideals in the ring $R$. Prove that $(R/J)/(I/J) \cong R/I$ as rings. \\
+}{ \\
+Let $\pi: R\rightarrow R/J$ and $\rho: R\rightarrow R/I$ be the natural surjective ring homomorphisms given by $\pi(x)=x+J$ and $\rho(x)=x+I$, for all $x\in R$. Then, by the first isomorphism theorem, we have $\operatorname{ker}(\pi)=J$ and $\operatorname{ker}(\rho)=I$. Moreover, we have $\rho(J)\subseteq I$, so $\rho$ induces a well-defined ring homomorphism $\overline{\rho}:R/J\rightarrow R/I$ given by $\overline{\rho}(x+J)=x+I$, for all $x\in R$.
+
+Now, we claim that $\overline{\rho}$ is an isomorphism with inverse given by $\pi|_{I}: I\rightarrow J$.
+
+First, let's show that $\overline{\rho}$ is well-defined. Suppose $x+J=y+J$ for some $x,y\in R$. Then, $x-y\in J\subseteq I$, so $\rho(x-y)=x+I-(y+I)=x+I-y-I\in I$. Therefore, $x+I=y+I$ and $\overline{\rho}$ is well-defined.
+
+Next, let's show that $\overline{\rho}$ is a homomorphism. Let $x+J,y+J\in R/J$. Then, we have
+\begin{align*}
+    \overline{\rho}((x+J)(y+J)) & =\overline{\rho}(xy+J)                     \\
+                                & =xy+I                                      \\
+                                & =(x+I)(y+I)                                \\
+                                & =\overline{\rho}(x+J)\overline{\rho}(y+J),
+\end{align*}
+so $\overline{\rho}$ is a homomorphism.
+
+Finally, we need to show that $\pi|_I: I\rightarrow J$ is the inverse of $\overline{\rho}$. Let $x\in I$. Then, we have $\overline{\rho}(\pi(x)+J)=\rho(x)+I=x+I$, so $\overline{\rho}\circ\pi|_I=\operatorname{id}_I$. Moreover, for any $y+J\in R/J$, we have $\pi(y)\in J\subseteq I$, so
+\begin{align*}
+    \overline{\rho}(y+J) & =y+I                   \\
+                         & =(\pi|_I\circ\pi)(y)+J \\
+                         & =\pi|_I(y+J),
+\end{align*}
+so $\pi|I\circ\overline{\rho}=\operatorname{id}{R/J}$. Therefore, $\overline{\rho}$ is an isomorphism with inverse given by $\pi|_I$.
+
+Thus, we have shown that $(R/J)/(I/J)\cong R/I$ as rings.
+}
+
+\prob{3}{
+    Supposed $I,J$ are two-sided ideals in the ring $R$. Show that $I \cap J$ and $I + J := \{ i + j \mid i \in I \text{ and } j \in J \}$ are two-sided ideals, and that there is an injective ring homomorphism $\phi : R/(I \cap J) \rightarrow R/I \times R/J$. Suppose $R$ is commutative. Can you think of a sufficient condition on $I$ and $J$ that guarantees that $\phi$ is surjective? (Hint: If you know it, consider a ring version of the Chinese Remainder Theorem.)\\
+}{\\
+    First, we will show that $I \cap J$ is a two-sided ideal.
+
+    Given $x \in (I \cap J) \implies x \in I \land x \in J$, if we take any $r, s \in R, \ rxs \in I \land rxs \in J \implies rxs \in I \cap J$
+    $$\therefore I \cap J \text{ is a two-sided ideal}$$
+
+    Now to show that $I + J$ is a two-sided ideal:
+
+    Given $x \in (I + J) \implies x = (i_x + j_x)$ where $i_x \in I$ and $j_x \in J$
+    Take any $r,s \in R, \ rxs = r(i_x + j_x)s = (ri_x + rj_x)s = ri_xs + rj_xs$ and $ri_xs \in I \land rj_xs \in J$ which implies that $ri_xs + rj_xs \in I + J$
+    $$\therefore I + J \text{ is a two-sided ideal}$$
+
+    Finally, we will show that $\phi : R/(I \cap J) \rightarrow R/I \times R/J$ is an injective ring homomorphism.
+
+    Define $\phi(x + I \cap J) = (x + I, x + J)$.
+
+    Injective:
+    $$\forall x_1 x_2 \in R,\ \phi(x_1 + I \cap J) = \phi(x_2 + I \cap J) \implies x_1 + I \cap J = x_2 + I \cap J$$
+    $$\phi(x_1 + I \cap J) = \phi(x_2 + I \cap J) \implies (x_1 + I, x_1 + J) = (x_2 + I, x_2 + J)$$
+    $$ \implies x_1 + I = x_2 + I \land x_1 + J = x_2 + J$$
+    $$\implies (x_1 - x_2) \in I \land (x_1 - x_2) \in J \implies (x_1 - x_2) \in I \cap J$$
+    $$\implies x_1 + I \cap J = x_2 + I \cap J$$
+    Homomorphism:
+
+    Addition:
+    $$\forall x_1 x_2 \in R,\ \phi(x_1 + I \cap J + x_2 + I \cap J) = \phi(x_1 + I \cap J) + \phi(x_2 + I \cap J)$$
+    $$\phi(x_1 + I \cap J + x_2 + I \cap J) = \phi(x_1 + x_2 + I \cap J) = (x_1 + x_2 + I, x_1 + x_2 + J)$$
+    $$ = (x_1 + I, x_1 + J) + (x_2 + I, x_2 + J) = \phi(x_1 + I \cap J) + \phi(x_2 + I \cap J)$$
+
+    Multiplication:
+    $$\forall x_1 x_2 \in R,\ \phi(x_1 + I \cap J \cdot x_2 + I \cap J) = \phi(x_1 + I \cap J) \cdot \phi(x_2 + I \cap J)$$
+    $$\phi(x_1 + I \cap J \cdot x_2 + I \cap J) = \phi(x_1 \cdot x_2 + I \cap J) = (x_1 \cdot x_2 + I, x_1 \cdot x_2 + J)$$
+    $$ = (x_1 + I, x_1 + J) \cdot (x_2 + I, x_2 + J) = \phi(x_1 + I \cap J) \cdot \phi(x_2 + I \cap J)$$
+
+    In order for $\phi$ to be surjective, we need to map to all of $R/I \times R/J$, which mean that $\forall x + I \in R/I, y + J \in R/J$ we need a corresponding $z + (I \cap J) \in R/(I \cap J)$ such that $\phi(z + (I \cap J)) = (x + I, y + J)$
+
+    This will happen if $z \in x + I$ and $z \in y + J$, which is to essentially say that $z \sim x \sim y \implies$ that $\phi$ is surjective.
+    This is guaranteed to occur if any element $z \in R$ is also automatically in $I + J$, so $R = I + J$ implies surjectivity.
+}
+
+\prob{4}{
+    Let $R$ be a ring and $I,J,K$ be two-sided ideals. Define $IJ := \langle X \rangle$ where $X := \{ ij \mid i \in I \text{ and } j \in J \}$.
+    \begin{enumerate}[(i)]
+        \item Show that $IJ$ is a two-sided ideal.
+        \item Show that $I \cdot (J + K) = IJ + IK$
+        \item Show that if, in addition, $R$ is commutative, $I + J = R \implies I \cap J = IJ$
+    \end{enumerate}
+}{
+    \begin{enumerate}[(i)]
+        \item To show that $IJ$ is a two-sided ideal, we need to show that for any $r, s \in R$, $r(ij)s \in IJ$
+              Since $I,J$ are two sided ideals, we know that $ri \in I$ and $js \in J$ which means that $(ri)(js) \in IJ$
+
+        \item $$I \cdot (J + K) := \langle \{ i \cdot (j + k) \mid i \in I \text{ and } (j + k) \in (J + K) \} \rangle$$
+              $$= \langle \{ i \cdot j + i \cdot k \mid i \in I, j \in J, \text{ and } k \in K \} \rangle = IJ + IK$$
+
+        \item If $R$ is commutative, and we know that $I + J = R$, then that implies $I \cap J = IJ$ \\
+              $I + J = R \implies \forall r \in R, \ r = i + j $ for some $i \in I, j \in J$ \\
+              First, we will show that $I \cap J \subseteq IJ$:
+
+              Given $x \in I \cap J$ we know that $x \in I \land x \in J$, $IJ := \{ ij \mid i \in I \text{ and } j \in J \}$, if we just trivially pick $x \in I$ and $e \in J$, then $xe = x \in IJ$ for any $x \in I \cap J$
+              $$\therefore I \cap J \subseteq IJ$$
+
+              Next, we will show that $IJ \subseteq I \cap J$:
+
+              Given $x \in IJ \subseteq R$ we know that $x = ij$ for some $i \in I$ and $j \in J$, yet we also know that $1 \in R, 1 = (i_1 + j_1)$ for some $i_1 \in I$ and $j_1 \in J$. \\
+              Multiplying, we get $x = ij \cdot 1 = iji_1 + ijj_1$, yet $iji_1 \in I$ and $ijj_1 \in J$ so $x \in I \cap J$
+              $$\therefore IJ \subseteq I \cap J$$
+
+              Thus $I + J = R \implies I \cap J = IJ$
+    \end{enumerate}
+}
+
+
+\end{document}
