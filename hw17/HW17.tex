@@ -91,6 +91,29 @@ Use this definition to prove the following problems.
   \admit
 }
 
+\prob{2 (Solution 2)}{}
+{
+\begin{align*}
+&d_2 \mid b, d_2 \mid c\\
+&\Rightarrow d_2f_b = b, d_2f_c = c\\
+&\Rightarrow ad_2f_b = ab, ad_2f_c = ac\\
+&\Rightarrow ad_2 \mid ab, ad_2 \mid ac\\
+&\Rightarrow ad_2 \mid d_1 \text{ from definition of gcd}\\
+&\\
+&\Rightarrow ad_2q = d_1\\
+&\Rightarrow ad_2qf = d_1f = ab \text{ Since $d_1 \mid ab$}\\
+&\Rightarrow ad_2qf = ab \Rightarrow d_2qf = b\\
+&\text{Similarly,}\\
+&\Rightarrow ad_2qh = d_1h = ac \text{ Since $d_1 \mid ac$}\\
+&\Rightarrow ad_2qh = ac \Rightarrow d_2qh = c\\
+&d_2q \mid c, d_2q \mid b \Rightarrow d_2q \mid d_2\\
+&\Rightarrow \text{$q$ is a unit, so}\\
+&ad_2q = d_1
+\end{align*}
+This means that $d_1$ is a unit multiple of $ad_2$.
+}
+
+
 \prob{3}{
   Show that if $1$ is a GCD of $a$ and $b$ is and $1$ is also a GCD of $a$ and $c$, then $1$ is a GCD of $a$ and $bc$. \\
 }{ \\
