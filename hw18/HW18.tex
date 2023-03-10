@@ -24,6 +24,10 @@
   \end{flushright}
 }
 
+\newcommand{\B}[1]{%bold
+	\mathbb{#1}
+}
+
 \newcommand{\makeHWtitle}[1]{
     \begin{center}
     \Large{Homework #1 - MATH 791} 
@@ -46,9 +50,59 @@ Such a ring is called a \emph{discrete valuation ring}, denoted DVR, and $\pi \i
   Fix a prime $p \in \mathbb{Z}$. Let $R$ denote the set of rational numbers whose denominators is not divisible by $p$.
   First show that $R$ is a subring of $\mathbb{Q}$, and then show that $R$ is a DVR with uniformizing parameter $p$. \\
 }{ \\
-  \admit
-}
+First we need to show that $R$ is a subring of $\mathbb{Q}$. $R$ inherits associativity and distributivity from $\mathbb{Q}$, so we only need to show that $(R, +)$ is a group and that $R$ is closed under multiplication.
+\newline
+Closure of $(R, +)$ under composition:
+\begin{align*}
+&\frac{a_1}{a_2}, \frac{b_1}{b_2} \in R\\
+&p \nmid a_2, p \nmid b_2\\
+&\frac{a_1}{a_2} + \frac{b_1}{b_2} = \frac{a_1b_2+ b_1a_2}{a_2b_2}\\
+\end{align*}
+Because $\B{Z}$ is a UFD, we use the contrapositive of one of the requirements of a prime to say that $p \nmid a_2, p \nmid b_2 \Rightarrow p \nmid a_2b_2$.
+\begin{align*}
+&\Rightarrow \frac{a_1b_2+ b_1a_2}{a_2b_2} \in R\\
+\end{align*}
+Closure of $(R, +)$ under inverses:
+\begin{align*}
+&\frac{a_1}{a_2} \in R\\
+&\left( - \frac{a_1}{a_2} \right) = \frac{-a_1}{a_2} = \frac{a_1}{-a_2} \in R\\
+\end{align*}
 
+Closure of $R$ under multiplication:
+\begin{align*}
+&\frac{a_1}{a_2}, \frac{b_1}{b_2} \in R\\
+&\frac{a_1}{a_2}* \frac{b_1}{b_2} = \frac{a_1b_1}{a_2b_2}\\
+&p \nmid a_2, p \nmid b_2 \Rightarrow p \nmid a_2b_2\\
+&\Rightarrow \frac{a_1}{a_2}* \frac{b_1}{b_2} \in R
+\end{align*}
+Also $R$ contains the multiplicative identity $\frac{1}{1}$.
+\newline
+Now we need to show that $R$ is a DVR with uniformizing parameter $p$.
+\newline
+Since primes can't be units, they must be elements of $R$ without a multiplicative inverse. An element has no multiplicative inverse iff it is a multiple of $p$.
+\begin{align*}
+&\frac{a_1p}{a_2} \in R, p \nmid a_2\\
+&\text{We assume WLOG that $p \nmid a_1$}\\
+&\\
+&\text{If $\frac{a_1p}{a_2}$ had an inverse $\frac{x_1}{x_2}$:}\\
+&\frac{a_1p}{a_2}*\frac{x_1}{x_2} = \frac{a_1px_1}{a_2x_2} \in \left[ \left( \frac{1}{1} \right) \right]\\
+& p \nmid x_2, p \nmid a_2 \Rightarrow p \nmid a_2x_2\\
+&\text{But } p \mid pa_1x_1 \\
+&\text{So $p$ divides the numerator but not the denominator}\\
+&\Rightarrow \frac{a_1p}{a_2}*\frac{x_1}{x_2} \notin \left[ \left( \frac{1}{1} \right) \right]\\
+&\text{So a multiple of $p$ does not have an inverse}\\
+&\\
+&\text{If an element in $R$ is not a multiple of $p$, then it has an inverse}\\
+&\frac{a_1}{a_2} \in R, p \nmid a_1, \nmid a_2\\
+&\Rightarrow \frac{a_1}{a_2}\frac{a_2}{a_1} = 1, \frac{a_2}{a_1} \in R
+\end{align*}
+So for any non-unit prime $\frac{pa_1}{a_2}$:
+\begin{align*}
+&p \mid \frac{pa_1}{a_2}\\
+&\frac{pa_1}{a_2} * \frac{a_2}{a_1} = p \Rightarrow \frac{pa_1}{a_2} \mid p\\
+&\Rightarrow \langle \frac{pa_1}{a_2} \rangle = \langle p \rangle
+\end{align*}
+}
 \prob{2}{
   Let $R$ be a DVR with uniformizing paramter $\pi \in R$. Show that $\bigcap_{n \geq 1} \langle \pi^n \rangle = 0$. \\
 }{ \\
