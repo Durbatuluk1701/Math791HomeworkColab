@@ -342,7 +342,15 @@ To prove that $R$ is a DVR, we show that for each prime $p \in R$, $v(p) = v(\pi
 &\Rightarrow v(\pi) + ... + v(\pi) = v(p)\\
 &\text{But $p$ is irreducible, so only one of the $q$ summands on the left is nonzero (by induction)}\\
 &\Rightarrow v(\pi) = v(p)\\
-&\Rightarrow \pi = up\\
+&\\
+&\text{Now we have to prove that $v(\pi) = v(p) \Rightarrow \pi = up$, with $u \in R$ a unit}\\
+&v(\pi) = v(p)\\
+&v(\pi) - v(p) = 0 \text{ From this point we can switch to the context of the field $F$}:\\
+&= v(\pi) + v(\frac{1}{p}) = 0 \text{ From $(iii)$}\\
+&\Rightarrow v(\pi * \frac{1}{p}) = 0\\
+&\Rightarrow \pi * \frac{1}{p} = u \text{ where $u$ is a unit in $R$}\\
+&\Rightarrow \pi * \frac{1}{p} * \left( \frac{1}{p} \right) ^{-1} = u * \left( \frac{1}{p} \right) ^{-1}\\
+&\Rightarrow \pi = u*p \text{ All of these elements are in $R$}\\
 &\Rightarrow \pi \mid p, p \mid \pi \Rightarrow \langle p \rangle \subseteq \langle \pi \rangle, \langle \pi \rangle \subseteq \langle p \rangle,\\
 &\Rightarrow \langle \pi \rangle = \langle p \rangle
 \end{align*}
