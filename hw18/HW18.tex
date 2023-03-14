@@ -28,6 +28,10 @@
 	\mathbb{#1}
 }
 
+\newcommand{\st}{
+	\text{ s.t. }
+}
+
 \newcommand{\makeHWtitle}[1]{
     \begin{center}
     \Large{Homework #1 - MATH 791} 
@@ -106,14 +110,84 @@ So for any non-unit prime $\frac{pa_1}{a_2}$:
 \prob{2}{
   Let $R$ be a DVR with uniformizing paramter $\pi \in R$. Show that $\bigcap_{n \geq 1} \langle \pi^n \rangle = 0$. \\
 }{ \\
-  \admit
+  First we can see that since $0 \in \langle \pi ^n \rangle$ for all $n$, $0 \in \bigcap_{n \geq 1} \langle \pi ^ n \rangle$.
+  \newline
+  Now consider a nonzero element $a \in R$. We know that $a$ can be written as a finite product of irreducibles (proved earlier), and that $\pi$ is prime, therefore irreducible, so
+  
+\begin{align*}
+&\text{case 1: } \pi \nmid a, \text{ or}\\
+&\text{case 2: } a = \pi ^s b\\
+&\text{Suppose there are two ways of writing $a$ in case 2:}\\
+&a = \pi ^ m b = \pi ^ n b' \text{ suppose $m \geq n$, and $m, n \geq 1$}\\
+&\pi ^ {m-n}b = b' \text{ From cancellation in IDs}\\
+&\Rightarrow \pi ^ n b' = \pi^n(\pi ^{m-n} b)\\
+&\text{So the two factorizations have the same number of $\pi$'s} \\
+&\\
+&\text{In case 1:}\\
+&\pi \nmid a \\
+&\Rightarrow \forall q, \pi q \neq a \Rightarrow a \notin \langle \pi \rangle\\
+&\\
+&\text{In case 2:}\\
+&a = \pi ^ s b\\
+&\text{WLOG, assume $\pi \nmid b$}\\
+&\Rightarrow \forall q, \pi q \neq b\\
+&\Rightarrow \forall q, \pi^{s+1} q \neq a\\
+&\Rightarrow a \notin \langle \pi ^ {s+1} \rangle
+\end{align*}
+In all cases, for any nonzero $a$ there exists an ideal of a power of $\pi$ such that $a \notin \langle \pi ^ n \rangle$. So since $a$ is not in all ideals of the form $\langle \pi ^ n \rangle $, $a \notin \bigcap _{n \geq 1} \langle \pi ^n \rangle$. But $0 \in \bigcap _{n \geq 1}$. So $\bigcap _{n \geq 1} = 0$
 }
 
 \prob{3}{
   Let $R$ be a DVR with uniformizing parameter $\pi \in R$. Show that every element in $R$ can be written uniquely as $u\pi^n$ for some $n \geq 0$ and $u \in R$ a unit.
   Conclude that if $K$ dnotes the quotient field of $R$, then every element in $K$ can be written uniquely in the form $u \pi^n$ for some $n \in \mathbb{Z}$ and $u \in R$, a unit. \\
 }{ \\
-  \admit
+  First we can prove that $R$ is a UFD. We know that every element in $R$ can be written as a product of irreducibles. Now we prove that irreducible elements generate maximal ideals:
+\begin{align*}
+&p \in R \text{ is irreducible}\\
+&\text{Suppose } <p> \subseteq <j> \subseteq R\\
+&\Rightarrow p = jr\\
+&\text{$p$ is irreducible } \Rightarrow \text{$j $ or $r$ is a unit}\\
+&\text{if $r$ is a unit, then } <j> = <p>\\
+&\text{if $j$ is a unit, then } <j> = R \text{ which is not an ideal}\\
+\end{align*}
+So $<p>$ is a maximal ideal.
+Now we can prove that maximal ideals are prime ideals, and that an element generating a prime ideal is prime.
+\begin{align*}
+&\text{Suppose $<q>$ is a maximal ideal and that }\\
+&q = ab\\
+&\text{We also assume that $q \mid ab, q \nmid a$}\\
+&<q> \subset <q> + <a>\\
+&<q> + <a> \text{ is an ideal, since the sum of ideals is an ideal}\\
+&<q> + <a> = R, \text{because it is a strict superset of $<q>$, and $<q>$ is maximal}\\
+&\\
+&1 \in <q> + <a>\\
+&\Rightarrow 1 = r_1q + r_2a\\
+&\Rightarrow b*1 = b*r_1q + b*r_2a\\
+&\Rightarrow b = br_1q + r_2(ab)\\
+&q \mid (br_1)q, q \mid (r_2)ab\\
+&\Rightarrow q \mid br_1q + r_2(ab) \Rightarrow q \mid b
+\end{align*}
+So $q$ is prime. We have shown that every irreducible element is prime in $R$. So every element can be written as a finite product of irreducibles, and therefore can be written as a finite product of primes. This implies that $R$ is a UFD, which includes uniqueness of the factorizations. But since there is only one prime:
+\begin{align*}
+&r \in R \Rightarrow r = (u_0\pi)(u_1\pi)(u_2\pi)...(u_k\pi)\\
+&\Rightarrow r = (u_0...u_k)\pi^k = u'\pi^k\\
+\end{align*}
+
+Now we have to prove that every element of $K$ can be written in a similar way.
+\begin{align*}
+&\frac{a}{b} \in K\\
+&\frac{a}{b} = \frac{u_1\pi ^m}{u_2 \pi ^n}\\
+&\text{If $m \geq n$:}\\
+&\frac{u_1\pi ^m}{u_2 \pi ^n} = \frac{u_2 \pi ^ n u_2^{-1}u_1\pi ^{m-n}}{u_2 \pi ^n}\\
+& = \frac{u_2^{-1}u_1\pi ^{m-n}}{1} = \frac{u'\pi ^{m-n}}{1} = u'\pi ^{m-n}\\
+&\\
+&\text{If $m < n$:}\\
+&\frac{u_1\pi ^m}{u_2 \pi ^n} = \frac{u_1\pi ^m}{u_1 \pi ^m u_1^{-1} u_2 \pi ^{n-m}}\\
+&=\frac{1}{u_1^{-1} u_2 \pi ^{n-m}} = \frac{1}{u' \pi ^{n-m}}\\
+& = \left( \frac{u' \pi ^{n-m}}{1} \right)^{-1}\\
+& = \left( u' \pi ^{n-m} \right)^{-1} \text{ using the convention of writing $\frac{a}{1} = a$ in K}\\
+&= u' \left( \pi ^{n-m} \right) ^{-1}
+\end{align*}
 }
 
 \prob{4}{
@@ -124,7 +198,37 @@ So for any non-unit prime $\frac{pa_1}{a_2}$:
   \end{enumerate}
   Observe that $R = \{ a \in K \mid v(a) \geq 0 \}$ \\
 }{ \\
-  \admit
+  Proof of $(i)$:
+  \newline
+\begin{align*}
+&\text{let } \alpha = u_1 \pi ^ {n_1}, \beta = u_2 \pi ^{n_2}\\
+&\text{We are considering the elements as being in $K$, but $u_1, u_2$ are units in $R$ and $\alpha, \beta \in R$}\\
+&\text{Assume that $n_1 < n_2$}\\
+&u_1 \pi ^ {n_1} + u_2 \pi ^{n_2} = u_3 \pi ^ {n_3} \text{ from 3.}\\
+&\\
+&\text{Suppose that $n_3 < n_1$ (This will show a contradiction)}\\
+&u_1 \pi ^ {n_1} + u_2 \pi ^{n_2} = u_3 \pi ^{ n_3}\\
+& = \pi ^ {n_1}(u_1 + u_2 \pi ^{n_2-n_1}) = \pi ^{n_1} u_3 \pi ^ {n_3-n_1}\\
+& = u_1 + u_2 \pi ^{n_2-n_1} = u_3 \pi ^ {n_3-n_1}\\
+&\text{Note that $n_3-n_1 < 0$}\\
+& = u_1 + u_2 \pi ^{n_2-n_1} = u_3 \left( \pi ^ {n_1-n_3} \right)^{-1}\\
+&\text{The expression on the left side is an element of $R$ from closure}\\
+&\text{This implies the right side is in $R$ (its not)}\\
+&\text{But we need to check that $u_3 \left( \pi ^ {n_1-n_3} \right)^{-1}$ can't be in $R$}\\
+&\text{If $u_3 \left( \pi ^ {n_1-n_3} \right)^{-1} \in R$, then it can be written $u_1 \pi ^b, b \geq 0$}\\
+&\Rightarrow u_1 \pi ^b * u_3 \left( \pi ^ {n_1-n_3} \right) = 1\\
+&\Rightarrow A * u_1 \pi ^b * u_3 \left( \pi ^ {n_1-n_3} \right) = A\\
+&\text{This contradicts the unique factorization of $A$ in $R$}\\
+&\text{Because of the contradiction we can conclude that $n_3 \geq \min (n_1, n_2)$}
+\end{align*}
+Proof of $(ii)$:
+\begin{align*}
+&\text{let } \alpha = u_1 \pi ^ {n_1}, \beta = u_2 \pi ^{n_2}\\
+&\alpha \beta = u_1 \pi ^ {n_1} u_2 \pi ^{n_2}\\
+&= u_1 u_2 \pi ^ {n_1} \pi ^{n_2} = u_1 u_2 \pi ^ {n_1+n_2}\\
+& = u' \pi ^ {n_1+n_2}\\
+&\Rightarrow v(\alpha \beta) = n_1 + n_2 = v(\alpha ) + v(\beta)\\
+\end{align*}
 }
 
 \prob{5}{
@@ -146,5 +250,103 @@ So for any non-unit prime $\frac{pa_1}{a_2}$:
     \item Show that if $\pi \in R$ and $v(\pi) = c$, then $R$ is a DVR with uniformizing parameter $\pi$.
   \end{enumerate}
 }
+{\\
+Proof of $(i)$:
+\begin{align*}
+&u \in R \text{ is a unit}\\
+&\Rightarrow u u ^{-1} = 1\\
+&\Rightarrow v(u) + v(u^{-1}) = v(1) = 0\\
+& u, u^{-1} \in R \Rightarrow v(u), v(u^{-1}) \geq 0\\
+&\Rightarrow v(u) = 0, v(u^{-1}) = 0\\
+&\\
+&\text{Now assume $v(b) = 0$ for some $b \in R$}\\
+&b^{-1} \in K = \frac{1}{b}\\
+&\Rightarrow b * \frac{1}{b} = 1 \text{ in K}\\
+&\Rightarrow v(b) + v(\frac{1}{b}) = v(1) = 0\\
+&v(b) = 0 \Rightarrow v(\frac{1}{b}) = 0\\
+&\text{since $v(\frac{1}{b}) \geq 0$, $\frac{1}{b} = b^{-1} \in R$}\\
+&\text{So $b$ has a multiplicative inverse in $R \Rightarrow $ $b$ is a unit}\\
+\end{align*}
 
+Proof of $(ii)$:
+\newline
+We assumed that the function $v(\alpha)$ takes values other than $0$ and $\infty$, so for some $\alpha \in K, v(\alpha) \neq 0$. We need to show that there exists an element in $R$ with the same property.
+\begin{align*}
+&\alpha \in K, v(\alpha) = c, c \neq 0\\
+&\text{if $c > 0$, then $c \in R$ by definition of $R$, and we are done)}\\
+&\text{if $c < 0$, then $c^{-1} \in K$}\\
+&c * c^{-1} = 1\\
+&v(c*c^{-1}) = v(1) = 0\\
+&v(c) + v(c^{-1}) = 0\\
+&v(c^{-1}) = -v(c)\\
+&\Rightarrow v(c^{-1} > 0)\\
+&\text{So $c^{-1} \in R$ and we are done}
+\end{align*}
+
+Proof of $(iii)$:
+\newline
+\begin{align*}
+&r \in R, v(r) > 0\\
+&\text{The multiplicative inverse of $r$ in $K$ is $\frac{1}{r}$}\\
+&\frac{1}{r}*r = 1 \text{ In K}\\
+&\Rightarrow v(\frac{1}{r}*r) = v(1)\\
+&\Rightarrow v(\frac{1}{r})+v(r) = 0\\
+&\Rightarrow v(\frac{1}{r}) = -v(r)\\
+\end{align*}
+
+Proof of $(iv)$:
+\newline
+First we can show that all of the elements in the image of $v$ are divisible by $c$. Then we can show that for each multiple of $c$, $ac$, with $a, c \in \B{Z}$, there exists an element $t \st v(t) = ac$ .
+
+\begin{align*}
+&\exists r_0 \in R \st v(r_0) = c\\
+&\text{Suppose there is an element $r \in R \st c \nmid v(r)$}\\
+&v(r) = qc + r', 0 < r' < c \text{ or}\\
+&v(r) = q(v(r_0)) + r', 0 < r' < c\\
+&\text{Consider the elements of $K$, $r, \frac{1}{r_0}$}\\
+&\text{let } b = r * \frac{1}{r_0} * \frac{1}{r_0} * ... * \frac{1}{r_0}\\
+&\text{Where there are $q$ terms of $\frac{1}{r_0}$}\\
+&v(b) = v(r * \frac{1}{r_0} * \frac{1}{r_0} * ... * \frac{1}{r_0})\\
+&\Rightarrow v(b) = v(r) - v(r_0) - ... - v(r_0)\\
+&\Rightarrow v(b) = v(r) - qv(r_0) = r'\\
+&r' > 0, \text{ so } b \in R. \text{ but $r' < c$, and $c := \min \{v(r) \mid r \in R$\}}\\
+&\text{This is a contradiction, so every number in the image of $v$ must be divisible by c}\\
+&\\
+\end{align*}
+Now we have to show that each multiple of $c$ is in the range of $v$, with $K$ as the domain.
+\begin{align*}
+&\text{For each value $qc$ when $q \geq 0$}:\\
+&r_0*r_0*...*r_0 \in K \text{ with $q$ terms of $r_0$}\\
+&v(r_0*r_0*...*r_0) = q*v(r_0) = qc, \text{ So there exists an element $r$ in $K$ \st $v(r) = qc$}\\
+&\\
+&\text{If $q < 0$}:\\
+&\frac{1}{r_0}*\frac{1}{r_0}*...*\frac{1}{r_0} \in K \text{ with $q$ terms of $\frac{1}{r_0}$}\\
+&v(\frac{1}{r_0}*\frac{1}{r_0}*...*\frac{1}{r_0}) = \vert q \vert *v(\frac{1}{r_0}) = \vert q \vert * (-v(r_0)) = q*v(r_0) = qc\\
+&\text{ So there exists an element $r = \frac{1}{r_0}*\frac{1}{r_0}*...*\frac{1}{r_0}$ in $K$ \st $v(r) = qc$}\\
+&\\
+\end{align*}
+So if an element is in $c \B{Z} $, then that element is in $im(v)$, and if an element is not in $c\B{Z}$, then it is not in $im(v)$. This proves the sets are equal.
+
+
+Proof of $(v)$:
+To prove that $R$ is a DVR, we show that for each prime $p \in R$, $v(p) = v(\pi) \Rightarrow p = u\pi$. So $\langle p \rangle = \langle \pi \rangle$.
+\begin{align*}
+&\text{Let $p$ be a prime in $R$}\\
+&\Rightarrow p \text{ is irreducible, so } p = ab \Rightarrow \text{$a$ or $b$ is a unit}\\
+&\Rightarrow v(p) = v(a) + v(b) \text{ So one term on the right is nonzero}\\
+&\\
+&\text{We know from part $(iv)$ that for all $r \in R$, $c \mid v(r)$}\\
+&\text{And the image of $v$ with $R$ as the domain is $c\B{Z}^+$}\\
+&c \mid v(p)\\
+&\Rightarrow v(\pi)*q = v(p)\\
+&\Rightarrow v(\pi) + ... + v(\pi) = v(p)\\
+&\text{But $p$ is irreducible, so only one of the $q$ summands on the left is nonzero (by induction)}\\
+&\Rightarrow v(\pi) = v(p)\\
+&\Rightarrow \pi = up\\
+&\Rightarrow \pi \mid p, p \mid \pi \Rightarrow \langle p \rangle \subseteq \langle \pi \rangle, \langle \pi \rangle \subseteq \langle p \rangle,\\
+&\Rightarrow \langle \pi \rangle = \langle p \rangle
+\end{align*}
+So $R$ is a DVR with uniformizing parameter $p$.
+
+}
 \end{document}
