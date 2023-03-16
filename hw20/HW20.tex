@@ -1,0 +1,86 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\B}[1]{%bold
+	\mathbb{#1}
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{20}
+Throughout this assignment $R$ denotes a commutative ring.
+
+\prob{1}{
+An ideal $P \neq R$ is said to be a $\emph{prime ideal}$ if for $a, b \in R$, $ab \in P \Rightarrow a \in P $ or $b \in P$. Prove that $P$ is a prime ideal iff $R/P$ is an integral domain.\\
+}
+{\\
+Solution
+}
+
+\prob{2}{
+An ideal $M \neq R$ is a $\emph{maximal ideal}$ if whenever $J \subseteq R$ is an ideal satisfying $M \subseteq J \subseteq R$, then $J = M$ or $J = R$. In other words, $M$ is maximal among the proper ideals of $R$. It follows from Zorn's Lemma, that if $I \subset R$ is an ideal, then there exists a maximal ideal $M \subseteq R$ with $I \subseteq M$. In particular, every commutative ring has at least one maximal ideal. Prove that $M$ is a maximal ideal iff $R/M$ is a field. Conclude that every maximal ideal is a prime ideal, and give an example of a prime ideal that is not a maximal ideal.
+\\
+}
+{\\
+Solution
+}
+
+\prob{3}{
+Let $R$ be a commutative ring. Ideals $I, J \subseteq R$ are said to be comaximal if $I + J = R$. Prove that $I$ and $J$ are comaximal iff there is no maximal ideal $M$ containing both $I$ and $J$.
+\\
+}
+{\\
+Solution
+}
+
+\prob{4}{
+Suppose $I, J$ are comaximal ideals in the commutative ring $R$. Show that $I \cap J = IJ$.
+\\
+}
+{\\
+Solution
+}
+
+
+\prob{5}{
+For $I$ and $J$ as in $4$, prove that the natural map $\phi: R \Rightarrow (R/I) \times (R/J)$ given by $\phi (r) = (r + I, r + J)$ is a surjective ring homomorphism whose kernel equals $I \cap J$. Conclude that $R/IJ \cong (R/I) \times (R/J)$. When $R = \B{Z}$, this isomorphism is one version of the $\emph{Chinese Remainder Theorem}$.
+\\
+}
+{\\
+Solution
+}
+
+\end{document}
