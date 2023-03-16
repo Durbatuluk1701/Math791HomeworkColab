@@ -94,21 +94,63 @@ $$\therefore R[x]/I[x] \cong (R/I)[x]$$
     \item Show that if $I$ is finitely generated, then $\langle I \rangle = I[[x]]$ as ideals of $R[[x]]$.
     \item Can you give an example where $I[[x]] \neq \langle I \rangle$
   \end{enumerate}
-}{ \\
-  Admitted
+}{
+  \begin{enumerate}[(i)]
+    \item To show that $R[[x]]$ is a ring, we need to show that it is an abelian group under addition, is closed under multiplication with an identity, and multiplication distributes over addition.
+
+          It is fairly straightforward to see that addition is an abelian group, additionally the multiplicate identity and closure are straightforward as well.
+
+          Show the distributive property:
+          $$\forall f g h, f(g + h) = \sum_{l = 0}^{\infty}d_lx^l, d_l = \sum_{i + j + k = l}a_i(b_j + c_k)$$
+          $$\implies d_l = \sum_{i + j + k = l}(a_ib_j) + (a_ic_k) \implies f(g + h) = fg + gh$$
+
+          Now, to show that $I[[x]]$ is the ideal of $R[[x]]$:
+
+          Since $I$ is an ideal, then $I[[x]]$ will be an ideal as well,
+          as the only multiplication and addition that will matter will
+          affect the coefficients (which are in $I$). The closure is also
+          inherent to the coefficients being in the ideal $I$.
+
+    \item In a very similar manner to problem 1, any element
+          $$i_j \in \langle I \rangle,\ i_j*\sum_{i=0}^{\infty} a_i * x^i = \sum_{i=0}^{\infty} i_j * a_i * x^i \in I[[x]]$$
+          and vice versa and element in $I[[x]]$ can be factored out.
+
+    \item \textbf{Admitted}
+  \end{enumerate}
 }
 Here is Eisentsteain's Criterion, which is an important test for irreducibility of polynomials over a UFD. \\
 \textbf{Eisenstein's Criterion:} Let $R$ be a UFD with quotient field $K$.
 Suppose $f(x) = a_nx^n + \cdots + a_0 \in R[x]$ is a primitive polynomial.
-Let $p \in R$ be a prime element and suppose: (i) $p \mid a_i$, for all $0 \leq i < n$.
-(ii) $p \nmid a_n$, and (iii) $p^2 \nmid a_0$.
-Then $f(x)$ is irreducible over $K$ (equivalently, over $R$).
+Let $p \in R$ be a prime element and suppose:
+\begin{enumerate}[(i)]
+  \item $p \mid a_i$, for all $0 \leq i < n$
+  \item $p \nmid a_n$
+  \item $p^2 \nmid a_0$.
+\end{enumerate}
+Then $f(x)$ is irreducible over $K$ (equivalently, over $R$).\\
 For example, $x^6 + 10x^2 + 5x + 15$ is irreducible over $\mathbb{Q}$, by using Eisenstein's criterion and $p = 5$.
 
 \prob{4}{
-  Let $p \in \mathbb{Z}$ be prime and $f_p(x) = x^{p-1} + x^{p-2} + \cdots + x + x \in \mathbb{Z}[x]$. Use Eisenstein's criterion, together with the following fact to show that $f_p(x)$ is irreducible over $\mathbb{Q}[x]$: $f_p(x)$ is irreducible over $\mathbb{Q}$ if and only if $f_p(x + 1)$ is irreducible over $\mathbb{Q}$. \\
+Let $p \in \mathbb{Z}$ be prime and $f_p(x) = x^{p-1} + x^{p-2} + \cdots + x + 1 \in \mathbb{Z}[x]$. Use Eisenstein's criterion, together with the following fact to show that $f_p(x)$ is irreducible over $\mathbb{Q}[x]$: $f_p(x)$ is irreducible over $\mathbb{Q}$ if and only if $f_p(x + 1)$ is irreducible over $\mathbb{Q}$. \\
 }{ \\
-  Admitted
+First, let us analyze the fact that $f_p(x) \text{ irred.} \iff f_p(x + 1) \text{ irred.}$
+
+If $f_p(x)$ is irreducible, then $f_p(x + 1) = (x + 1)^{p-1} + \cdots + (x + 1) + 1$,
+which we can reduce to
+$$[x^{p - 1} + \binom{p-1}{1}(x^{p-2})(1) + \cdots + \binom{p-1}{p-2}(x^{1}) + 1] + \cdots + [x + 1] + 1$$
+From this we can subtract our $f_p(x)$ that is irreducible, and now that what is left must also be irreducible.
+$$\therefore \sum_{i=0}^{p - 1}\binom{p-1}{i}x^{p-1-i} \text{ is irreducible}$$
+This conclusion lets us see that criterion $(i)$ of Eisenstein's Criterion holds.
+
+To show criterion $(ii)$, it is fairly straightforward to see that
+any value of $p$ will not divide $a_n = 1$ unless $p = 1 \implies f_p(x) = 1$ (which will be trivially irreducible)
+
+Finally for criterion $(iii)$, let us assume that $p^2 \mid a_0$.
+This would then mean that we could factor out $p^2$ from $a_0$ in both $f_p(x)$ and $f_p(x + 1)$, which means in this case that $p^2 \mid 1 \implies p = 1 \rightarrow\leftarrow$
+
+This would once again lead to the trivially irreducible $f_p(x) = 1$
+
+$$\therefore \text{We have proven all of Eisenstein's Criterion's, so $f_p(x)$ is irreducible}$$
 }
 
 \prob{5}{
