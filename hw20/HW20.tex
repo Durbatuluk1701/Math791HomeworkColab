@@ -47,7 +47,26 @@ Throughout this assignment $R$ denotes a commutative ring.
 An ideal $P \neq R$ is said to be a $\emph{prime ideal}$ if for $a, b \in R$, $ab \in P \Rightarrow a \in P $ or $b \in P$. Prove that $P$ is a prime ideal iff $R/P$ is an integral domain.\\
 }
 {\\
-Solution
+For the first direction, $R/P$ is an ID $\Rightarrow$ $P$ is a prime ideal:
+\begin{align*}
+&\text{Suppose } r_1r_2 + P = 0_{R/P} = P \Rightarrow r_1r_2 \in P\\
+&r_1r_2 + P = (r_1 + P)(r_2 + P) = 0_{R/P} = P \\
+&\Rightarrow (r_1 + P) = 0_{R/P} = P or (r_2 + P) = 0_{R/P} = P \text{ Since $R/P$ is an ID}\\ 
+&\\
+&\text{If $r_1 + P = P$}:\\
+&\text{then } r_1 \in P\\
+&\text{And if $r_2 + P = P$}:\\
+&\text{then } r_2 \in P\\
+\end{align*}
+So $r_1r_2 \in P \Rightarrow r_1 \in P$ or $r_2 \in P$, so $P$ is a prime ideal. Now the other direction:
+\begin{align*}
+&\text{Suppose $P$ is a prime ideal}\\
+&\text{Suppose $r_1r_2 \in P$}\\
+&\Rightarrow r_1r_2 + P = P = 0_{R/P} = (r_1 + P)(r_2 + P)\\
+&\text{Either $r_1 \in P$ or $r_2 \in P$ since $P$ is a prime ideal}\\
+&\Rightarrow (r_1 + P) = 0_{R/P} \text{ or } (r_2 + P) = 0_{R/P}\\
+\end{align*}
+So if $P$ is a prime ideal, then $r_1r_2 + P = 0_{R/P} \Rightarrow (r_1 + P) = 0_{R/P} $ or $(r_2 + P) = 0_{R/P}$, so $R/P$ is an integral domain.
 }
 
 \prob{2}{
@@ -55,7 +74,53 @@ An ideal $M \neq R$ is a $\emph{maximal ideal}$ if whenever $J \subseteq R$ is a
 \\
 }
 {\\
-Solution
+First we can prove that $M$ being maximal implies that $R/M$ is a field. We have to show that every element in $R/M$ other than the additive identity has a multiplicative inverse.
+
+\begin{align*}
+&\text{let } r + M \in R/M\\
+&\text{If } r \in M \Rightarrow r + M = M\text { is the additive identity and doesn't have a multiplicative inverse}\\
+&\text{If } r \notin M \Rightarrow (\langle r \rangle + M) \supset M\\
+&\Rightarrow (\langle r \rangle + M) = R \text{ since $M$ is maximal}\\
+&\Rightarrow 1 \in R, 1 \in (\langle r \rangle + M)\\
+&\Rightarrow 1 = rr' + m'\\
+&\Rightarrow 1 + (-m') = rr'\\
+&\Rightarrow rr' \in M + 1 \Rightarrow rr' = m_2 + 1\\
+&\Rightarrow rr' + M = 1 + M\\
+&\Rightarrow (r + M)(r' + M) = (1 + M)\\
+&\text{So $(r + M)$ has the multiplicative inverse $(r' + M)$, so $R/M$ is a field}\\
+\end{align*}
+Now for the other direction, we show that $R/M$ being a field implies that $M$ is maximal.
+
+\begin{align*}
+&\text{$R/M$ is a field, so every nonzero element has a multiplicative inverse}\\
+&\text{Suppose } J \supset M \text{is an ideal that is a strict superset of $M$}\\
+&\exists j \in J, j \notin M\\
+&\text{(j + M) has an inverse :}\\
+&(j + M)(r' + M) = (1 + M)\\
+&\Rightarrow jr' + M = 1 + M\\
+&\Rightarrow jr' + m' = 1 \text{ for some $m'$}\\
+&m' = jr'' \text{ since $M \subset J$}\\
+& = jr' + jr'' = 1 = j(r' + r'') = 1\\
+&\Rightarrow j(r'+r'')*r = r \text{ for all $r \in R$}\\
+\end{align*}
+So $J = R$, which means that $M$ is a maximal ideal.
+\newline
+We can notice that all fields are integral domains. Suppose F is a field.
+\begin{align*}
+&a, b \in F\\
+&ab = 0\\
+&\text{If $a = 0$ we are done. If $a \neq 0$, it has an inverse}\\
+&ab = 0\\
+&a^{-1}ab = a^{-1}0\\
+&b = 0\\
+\end{align*}
+So either $a$ or $b$ are the additive inverse. So if $M$ is a maximal ideal:
+\begin{align*}
+& M \text{ maximal} \Rightarrow R/M \text{ is a field} \Rightarrow R/M \text{ is an ID} \Rightarrow M \text{ is a prime ideal from problem 1}\\
+&M \text{ maximal} \Rightarrow M \text{ is a prime ideal}\\
+\end{align*}
+
+Finally, consider the ideal $\langle 0 \rangle$ in the ring $\B{Z}$. $\B{Z}$ is an ID, so if $ab \in <0> \Rightarrow ab = 0 \Rightarrow a \in <0> \text{or } b \in <0>$. But $<0> \subseteq <r>$ for all $r \in R$, so it is not maximal.
 }
 
 \prob{3}{
@@ -63,7 +128,24 @@ Let $R$ be a commutative ring. Ideals $I, J \subseteq R$ are said to be comaxima
 \\
 }
 {\\
-Solution
+First we can show that if $I + J = R$, then there is no maximal ideal that is a superset of both $I$ and $J$. 
+\begin{align*}
+&I+J = R\\
+&\Rightarrow i + j = 1 \text{ For some $i \in I, j \in J$}\\
+&\\
+&\text{Suppose $M$ is an ideal, and that } I \subseteq M, J \subseteq M\\
+&i + j \in M \Rightarrow 1 \in M \Rightarrow r \in M\\
+&\Rightarrow M = R\\
+\end{align*}
+Since $M$ must be the whole ring, there is no maximal ideal containing both $I$ and $J$. Now the other direction, where we assume there is no maximal ideal containing $I$ and $J$:
+\begin{align*}
+&\text{If $I \subset M, J \subset M$, and $M$ is an ideal, then } M = R\\
+&\text{Let } M = I + J\\
+&I + J \text{ Is an ideal, which we can show through closure under addition, multiplication, etc.}\\
+&\text{It inherits associativity and distributivity from $R$}\\
+&I \subseteq I + J, J \subseteq I + J \Rightarrow I+J = R
+\end{align*}
+So $I, J$ must be comaximal.
 }
 
 \prob{4}{
@@ -71,7 +153,23 @@ Suppose $I, J$ are comaximal ideals in the commutative ring $R$. Show that $I \c
 \\
 }
 {\\
-Solution
+First we can show that if $a \in IJ \Rightarrow a \in I \cap J$:
+\begin{align*}
+&a \in IJ\\
+&a = r_1i_1j_1r_1' + ... + r_ki_kj_kr_k'\\
+& = i_1(r_1j_1r_1') + ... + i_k(r_kj_kr_k') \in I\\
+& = j_1(r_1i_1r_1') + ... + j_k(r_ki_kr_k') \in J\\
+&\Rightarrow r_1i_1j_1r_1' + ... + r_ki_kj_kr_k' \in I \cap J\\
+\end{align*}
+Now the other direction:
+\begin{align*}
+&a \in I \cap J\\
+&\text{We use the fact that } I + J = R \Rightarrow 1 = i' + j'\\
+&a = a*1 = a(i' + j') = ai' + aj' = i'a + aj'\\
+& = i'j_a + i_aj' \text{ since $a$ can be considered an element of both $I$ and $J$}\\
+& = i'j_a + i_aj' \in IJ
+\end{align*}
+So $I \cap J = IJ$\\
 }
 
 
@@ -80,7 +178,49 @@ For $I$ and $J$ as in $4$, prove that the natural map $\phi: R \Rightarrow (R/I)
 \\
 }
 {\\
-Solution
+First we should show that $\phi$ is a surjective homomorphism:
+\begin{align*}
+&\phi(a_1) + \phi(a_2) = (a_1 + I, a_1 + J) + (a_2 + I, a_2 + J)\\
+& = (a_1 + a_2 + I, a_1 + a_2 + J)\\
+& = \phi(a_1+a_2)\\
+&\\
+&\phi(a_1)*\phi(a_2) = (a_1 + I, a_1 + J)*(a_2 + I, a_2 + J)\\
+& = (a_1a_2 + I, a_1a_2 + J) = \phi(a_1a_2)\\
+\end{align*}
+Now we have to show that the homomorphism is surjective:
+\begin{align*}
+&\text{Since $I, J $ are comaximal:}\\
+&I + J = R \Rightarrow 1 = i' + j' \text{ for some $i' \in I, j' \in J$}\\
+&\text{So for any $r \in R$}:\\
+&r = ri' + rj'\\
+&\Rightarrow \forall r \in R\\
+&r + I = ri' + rj' + I = rj' + I \text{ because $ri' \in I$}\\
+&\text{Similarly,}\\
+&r + J = ri' + rj' + J = ri' + J \text{ because $ri' \in I$}\\
+&\\
+&\text{For any element in } (R / I) \times (R /J ), (a_1 + I, a_2 + J)\\
+&\text{Let } r \in R, r = a_2i' + a_1j', \text{ with $i', j'$ as above}\\
+&\\
+&\phi(r) = (a_2i' + a_1j' + I, a_2i' + a_1j' + J)\\
+&a_2i' \in I, a_1j' \in J\\
+&\Rightarrow \phi(r) = (a_1j' + I, a_2i' + J) = (a_1 + I, a_2 + J) \text{ from what we proved earlier}
+\end{align*}
+
+\begin{align*}
+&\text{Suppose } k \in R \text{ s.t. } \phi(k) = (I, J) \\
+&\text{ ((I, J) is the additive identity of the ring $(R/I) \times (R/J)$)}\\
+&\phi(k) = (k + I, k + J) = (I, J)\\
+&\Rightarrow k \in I, k \in J \Rightarrow k \in I \cap J\\
+&\text{So } ker \phi = I \cap J\\
+\end{align*}
+
+From the first isomorphism theorem, we see that
+\begin{align*}
+&R/(I\cap J) \cong (R/I) \times (R/J)\\
+&\text{But } I \cap J = IJ \text{ since $I, J$ are comaximal}\\
+&\Rightarrow R/(IJ) \cong (R/I) \times (R/J)
+\end{align*}
+
 }
 
 \end{document}
