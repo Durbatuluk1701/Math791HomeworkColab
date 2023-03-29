@@ -87,7 +87,20 @@
 \prob{3}{
   Can you write down the multiplicative inverse of $1 + \sqrt[3]{2} + \sqrt[3]{4}$ in $\mathbb{Q}(\sqrt[3]{2})$ without doing any calculations? \\
 }{\\
-  Admitted
+  No I cannot, how am I supposed to without calculations.
+
+  Using calculations, we see $(x + 2y + 2z) + (x + y + 2z) \sqrt[3]{2} + (x + y + z) \sqrt[3]{4} = 1$.
+  $$\begin{pmatrix}
+      1 & 2 & 2 & 1 \\
+      1 & 1 & 1 & 0 \\
+      1 & 1 & 1 & 0
+    \end{pmatrix} \leadsto
+    \begin{pmatrix}
+      1 & 0 & 0 & -1  \\
+      0 & 1 & 0 & 1 \\
+      0 & 0 & 1 & 0
+    \end{pmatrix}$$
+  Thus, the inverse is $(-1 + 1 \sqrt[3]{2} )$
 }
 
 \prob{4}{
