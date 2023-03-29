@@ -96,8 +96,8 @@
       1 & 1 & 1 & 0
     \end{pmatrix} \leadsto
     \begin{pmatrix}
-      1 & 0 & 0 & -1  \\
-      0 & 1 & 0 & 1 \\
+      1 & 0 & 0 & -1 \\
+      0 & 1 & 0 & 1  \\
       0 & 0 & 1 & 0
     \end{pmatrix}$$
   Thus, the inverse is $(-1 + 1 \sqrt[3]{2} )$
@@ -107,7 +107,12 @@
   Let $F := \mathbb{Q}(\sqrt{2})$. Define $K := F(\sqrt{3})$ to be the set $\{ a + b \sqrt{3} \mid a, b \in F \}$. Show that $[K : F] = 2$.
   Can you guess $[K : \mathbb{Q}]$? If so, give a proof validating your guess. \\
 }{\\
-  Admitted
+  I would guess that $[K : \mathbb{Q}] = 4$.
+  This is because $\dim_{\mathbb{Q}} K = \dim_{\mathbb{Q}} F(\sqrt{3})$
+  And $F := \{ a + b \sqrt{2} \mid a,b \in \mathbb{Q} \}$, so
+  $F(\sqrt{3}) := \{ a + b \sqrt{3} \mid a,b \in F \} = \{ a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mid a,b,c,d \in \mathbb{Q} \}$
+  To find a basis for this in $\mathbb{Q}$, we need the elements $1, \sqrt{2}, \sqrt{3}, \sqrt{6}$
+  $$\therefore [K : \mathbb{Q}] = 4$$
 }
 
 \prob{5}{
