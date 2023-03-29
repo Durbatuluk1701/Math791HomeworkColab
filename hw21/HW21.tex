@@ -47,7 +47,21 @@
   are linearly independent over $\mathbb{Q}$.
   Thus, $[\mathbb{Q}(\sqrt[3]{2}) : \mathbb{Q}] = 3$. \\
 }{\\
-  Admitted
+  Let us start with $1, \sqrt[3]{2}$ and assume for contradiction that they are not linearly independent.
+
+  That would mean that $\exists \lambda_1, \lambda_2 \in \mathbb{Q}$ such that $\lambda_1 * 1 + \lambda_2 * \sqrt[3]{2} = 0$.
+  We can reduce this to $\lambda_1 + \lambda_2 * \sqrt[3]{2} = 0$, and since both $\lambda_1, \lambda_2 \in \mathbb{Q}$, we can factor out $\lambda_2$ from both to get.
+  $$\lambda_2 * (\lambda_1' + \sqrt[3]{2}) = 0$$
+  $$\implies \sqrt[3]{2} = - \lambda_1' \implies 2 = - (\lambda_1')^3$$
+  This would mean that there exists a $\lambda_1' \in \mathbb{Q}, \lambda_1' = \sqrt[3]{-2}$
+  which is a contradiction.
+  $$\therefore 1, \sqrt[3]{2} \text{ are linearly independent}$$
+  A very similar argument can be made when adding $\sqrt[3]{4}$ to the mix
+  $$\therefore 1, \sqrt[3]{2}, \sqrt[3]{4} \text{ are linearly independent over $\mathbb{Q}$}$$
+
+  Now to conclude that $[\mathbb{Q}[\sqrt[3]{2}] : \mathbb{Q}] = 3$, we need only realize that
+  any element in $\mathbb{Q}[\sqrt[3]{2}]$ can be made of $1, \sqrt[3]{2}, \sqrt[3]{4}$.
+  Thus the degree of $\mathbb{Q}[\sqrt[3]{2}]$ over $\mathbb{Q}$ is $3$.
 }
 
 \prob{2}{
