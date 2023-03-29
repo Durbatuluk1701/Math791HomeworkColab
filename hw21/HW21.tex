@@ -122,8 +122,33 @@ Let $p(x) = x^2 + x + 1 \in \mathbb{Z}_2[x]$.
   \item Show the the commutative ring $\mathbb{Z}_2[x] / \lr{p(x)}$ has just four elements.
   \item Prove that the ring $\mathbb{Z}_2[x] / \lr{p(x)}$ is a field.
 \end{enumerate}
-}{\\
-Admitted
+}{
+\begin{enumerate}[(i)]
+  \item Let us assume it can be reduced $p(x) = f(x)g(x)$ and neither $f,g$ are units.
+        So $deg(f(x)), deg(g(x)) = 1$.
+        Additionally, we know that both $f(x)$ and $g(x)$ must have a constant term $1$, since $p(x)$ has a constant term $1$.
+        So $f(x) = \alpha x + 1$ and $g(x) = \beta x + 1$
+        $f(x) g(x) = \alpha \beta x^2 + (\alpha + \beta) x + 1$
+        We know that $\alpha \beta = 1$, and since we are in $\mathbb{Z}_2$, that means $\alpha = \beta = 1$. However, this would cause the $x$ term to be $2x \equiv 0x$ which is not allow.
+        $$\therefore \text{$p(x)$ is irreducible}$$
+
+  \item Let us try to enumerate the possible elements of $F := \mathbb{Z}_2[x] / \lr{p(x)}$.
+        We know that for every power of $x$, the coefficient is either $0$ or $1$, since we are in $\mathbb{Z}_2$.
+        We can find the following elements in $F$: $\{ 1, x, x + 1, x^2 + 1, x^2 + x \}$.
+        Any other element will be canceled out be the quotient $\lr{p(x)}$.
+        To demonstrate this, take an element $z = a_n x^n + \cdots + a_0$ for $n \geq 3$.
+        If $a_n = 1$ then take out $z' = z - p(x) * x^{n - 2} = (a_{n - 1} - 1)x^{n - 1} + \cdots + a_0$. Repeat this process until $n = 2$. At which point either $z' = p(x)$, in which case it has been canceled out, or $z' \in$ out previously laid out elements.
+        \admit
+
+  \item To show that it is a field, we need to show primarily
+        the multiplicative inverse property. The other properties are inherited from (ii) stating that $\mathbb{Z}_2 / \lr{p(x)}$ is a commutative ring.
+        Given the elements in $F$, we can find a multiplicative inverse for each.
+        \begin{enumerate}
+          \item $1$ is its own inverse
+          \item $x * (x^2 + 1) = x^3 + x \equiv$
+        \end{enumerate}
+        \admit
+\end{enumerate}
 }
 
 
