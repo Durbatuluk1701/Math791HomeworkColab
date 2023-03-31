@@ -1,0 +1,294 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:}\\ 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+\makeHWtitle{22}
+\prob{1}{
+Let $F \subset K$ be fields and $U := \{u_1, ..., u_r\}$ a subset of $K$. Define $F(U)$ to be the intersection of all subfields of $K$ containing $F$ and $U$. We also denote this intersection as $F(u_1, ..., u_r)$.
+\begin{enumerate}[i]
+\item) Show that $F(U)$ is a field\\
+\item) Show that 
+\begin{align*}
+&F(U) = \{a(u_1, ..., u_r)b(u_1, ..., u_r)^{-1} \mid a(x_1, ..., x_r), b(x_1, ..., x_r) \in F[x_1, ..., x_r], \text{ with } b(u_1, ..., u_r \neq 0)\}
+\end{align*}
+\end{enumerate}
+}
+{
+\textbf{Proof of $(i)$}:
+\newline
+We have to prove that $F(U)$ is a field. Let 
+\begin{align*}
+&F(U) = \bigcap E_i \text{, where } F \subseteq E_i \subseteq K \text{, } U \subseteq E_i\\
+&\\
+&\text{First, $F(U)$ inherits associativity, distributivity, }\\
+&\text{and commutativity in multiplication and addition from $K$}\\
+&f, g \in F(U) \Rightarrow f, g \in E_0, E_1, ...\\
+&\Rightarrow f+g \in E_0, E_1, ...\\
+&\Rightarrow f+g \in F(U)\\
+&\\
+&f \in F(U) \Rightarrow f \in E_0, E_1, ...\\
+&\Rightarrow -f \in E_0, E_1, ...\\
+&\Rightarrow -f \in F(U)\\
+&\Rightarrow \text{ $F(U) $ is an abelian group under addition.}\\
+\end{align*}
+\begin{align*}
+&f, g \in F(U) \Rightarrow f, g \in E_0, E_1, ...\\
+&\Rightarrow fg \in E_0, E_1, ...\\
+&\Rightarrow fg \in F(U)\\
+&\\
+&f \in F(U) \Rightarrow f \in E_0, E_1, ...\\
+&\text{If $f \neq 0$, } f^{-1} \in E_0, E_1, ...\\
+&\Rightarrow f^{-1} \in \bigcap E_i = F(U)\\
+\end{align*}
+So $F(U)$ is a field.
+\newline
+\textbf{Proof of $(ii)$}:
+\newline
+Now we have to prove that 
+\begin{align*}
+&F(U) = \{a(u_1, ..., u_r)b(u_1, ..., u_r)^{-1} \mid a(x_1, ..., x_r), b(x_1, ..., x_r) \in F[x_1, ..., x_r], \text{ with } b(u_1, ..., u_r) \neq 0\}
+\end{align*}
+\begin{align*}
+&\text{Let }A = \{a(u_1, ..., u_r)b(u_1, ..., u_r)^{-1} \mid a(x_1, ..., x_r), b(x_1, ..., x_r) \in F[x_1, ..., x_r], \text{ with } b(u_1, ..., u_r) \neq 0\}\\
+&\text{First we can prove that $A$ is a field which contains $F$ and $U$}\\
+&\\
+&\text{$A$ is closed under multiplication, multiplicative inverses}:\\
+&ab^{-1} \in A\\
+&a = a(u_1, ..., u_r)\\
+&b = b(u_1, ..., u_r)\\
+&\Rightarrow a(x_1, ..., x_r) \in F[x_1, ..., x_r], b(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&\\
+&cd^{-1} \in A\\
+&\Rightarrow c(x_1, ..., x_r) \in F[x_1, ..., x_r], d(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&\\
+&\Rightarrow (ca) \in F[x_1, ..., x_r]\\
+&\Rightarrow (bd) \in F[x_1, ..., x_r]\\
+&\Rightarrow (ca)(bd)^{-1} = (ab^{-1})(cd^{-1}) \in A\\
+&\text{So $A$ is closed under multiplication}\\
+\end{align*}
+\begin{align*}
+&\text{Also, } \\
+&ab^{-1} \in A\\
+&a = a(u_1, ..., u_r)\\
+&b = b(u_1, ..., u_r)\\
+&\Rightarrow a(x_1, ..., x_r) \in F[x_1, ..., x_r], b(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&\Rightarrow ba^{-1} \in A\\
+%&\text{unless $a(x_1, ..., x_r)$ or $b(x_1, ..., x_r)$ is the zero polynomial in $F[x_1, ..., x_r]$ }\\
+&\text{So every nonzreo element in $A$ has a multiplicative inverse}\\
+&\\
+&\text{Closure under addition:}\\
+&ab^{-1} \in A, cd^{-1} \in A\\
+&a = a(u_1, ..., u_r)\\
+&b = b(u_1, ..., u_r)\\
+&c = c(u_1, ..., u_r)\\
+&d = d(u_1, ..., u_r)\\
+&\\
+&\Rightarrow bd(u_1, ..., u_r) \text{ Has a corresponding } bd(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&\Rightarrow (bd)^{-1} \in A \text{ with $b, d \neq 0$ since $ab^{-1}, cd^{-1} \in A$}\\
+&\\
+&(ab+cd)(u_1, ..., u_r) \text{ also has a corresponding polynomial in } F[x_1, ..., x_r]\\
+&\text{Because it can be written as a polynomial in $U$}\\
+&\Rightarrow (ab+cd)(bd)^{-1} \in A\\
+&(ad+cb)(bd)^{-1} = add^{-1}b^{-1} + cbd^{-1}b^{-1}\\
+& = ab^{-1} + cd^{-1} \in A\\
+\end{align*}
+\begin{align*}
+&\text{additive inverses:}\\
+&ab^{-1} \in A\\
+&a = a(u_1, ..., u_k) \Rightarrow a(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&-a(x_1, ..., x_r) \in F[x_1, ..., x_r]\\
+&\Rightarrow -a(u_1, ... u_r)b^{-1} \in A\\
+&\\
+&ab^{-1} + -ab^{-1} = (a-a)b^{-1} = 0*b^{-1} = 0 \in A\\
+\end{align*}
+$A$ inherits the rest of the field properties from $K$, since it is a subset of $K$.
+\begin{align*}
+&\text{Now we need to show that $A$ contains $F$ and $U$}\\
+&f \in F\\
+&\Rightarrow f \in F[x_1, ..., x_r] \text{ $f(x_1, ..., x_r)$ is degree 0}\\
+&\Rightarrow f(u_1, ..., u_r) = f \\
+&1 \in F, 1 \in F[x_1, ..., x_r]\\
+&f*1^{-1} \in A\\
+&1^{-1} = 1\text{ in $K$}\\
+& \Rightarrow f \in A\\
+&\Rightarrow F \subseteq A\\
+\end{align*}
+\begin{align*}
+&u_i \in U\\
+&\Rightarrow g(x_1, ..., x_r) = x_i \in F[x_1, ..., x_r]\\
+&\Rightarrow g(u_1, ..., u_r) = u_i \\
+&1 \in F, 1 \in F[x_1, ..., x_r]\\
+&g(u_1, ..., u_r)*1^{-1} \in A\\
+&1^{-1} = 1\text{ in $K$}\\
+&\Rightarrow u_i \in A\\
+&\Rightarrow U \subseteq A\\
+\end{align*}
+\begin{align*}
+&\text{Now we prove that $A$ is a subfield of any field $E$ containing}\\
+&\text{$U$ and $F$}\\
+&\\
+&\text{Let $E \supseteq F, E \supseteq U$, $E$ a field}\\
+&ab^{-1} \in A\\
+&a = \sum_k f_{k_0}(u_1^{k_1}u_2^{k_2}...u_r^{k_r})\\
+&\text{ where $f_{k_i} \in F$}\\
+&\\
+&b = \sum_y f_{y_0}(u_1^{y_1}u_2^{y_2}...u_r^{y_r})\\
+&\text{ where $f_{y_i} \in F$}\\
+&\\
+&\text{$E$ has closure under multiplication and addition}\\
+&\text{and $E$ contains $F$ and $U$}\\
+&\Rightarrow a \in E, b \in E\\
+&\text{$E$ has multiplicative inverses}:\\
+&b^{-1} \in E \Rightarrow ab^{-1} \in E\\
+&\Rightarrow A \subseteq E\\
+\end{align*}
+So $A$ is a field containing $U$ and $F$, $A \subseteq E$ for every field $E$ such that $F \subseteq E \subseteq K$ and $U \subseteq E$. 
+\begin{align*}
+&\text{So}\\
+&\bigcap_i E_i = A\\
+& = \{a(u_1, ..., u_r)b(u_1, ..., u_r)^{-1} \mid a(x_1, ..., x_r), b(x_1, ..., x_r) \in F[x_1, ..., x_r], \text{ with } b(u_1, ..., u_r) \neq 0\}
+\end{align*}
+}
+
+\prob{2}{
+Maintaining the notation from the previous problem
+\begin{enumerate}[i]
+\item) Suppose $r = 2$. Show that 
+\begin{align*}
+&F(u_1, u_2) = F(u_1)(u_2)\\
+\end{align*}
+\item) Let $X_1 \cup ... \cup X_s$ with $s \leq t$(r?) be a partition of $U$. Prove
+\begin{align*}
+&F(U) = F(X_1)(X_2)...(X_S)\\
+\end{align*}
+\end{enumerate}
+}{
+\textbf{Proof of $(i)$:}\\
+I wasn't able to figure out a more straightforward way of doing this problem
+\begin{align*}
+&\text{Let }a \in F(u_1)(u_2)\\
+&\Rightarrow a = f(u_2)g(u_2)^{-1}, f(x), g(x) \in F(u_1)[x]\\
+&\Rightarrow a = \frac{\sum_i \left( \frac{f'_i(u_1)}{g'_i(u_1)} \right) u_2^i}{ \sum_j \left( \frac{y'_j(u_1)}{w'_j(u_1)} \right) u_2^j}, \text{ where }f'_i(x), g'_i(x), y'_j(x), w'_j(x) \in F[x]\\
+& = \frac{\sum_i \left( \frac{f''_i(u_1, u_2)}{g'_i(u_1)} \right)}{ \sum_j \left( \frac{y''_j(u_1, u_2)}{w'_j(u_1)} \right)}\\
+&\text{A common denominator can be found by taking the product of all $g'_i(u_1)$}:\\
+& = \frac{ \frac{\sum_i f'''_i(u_1, u_2)}{g''(u_1)} }{\frac{\sum_j  y'''_j(u_1, u_2)}{w''(u_1)}}\\
+& = \frac{\sum_i f'''_i(u_1, u_2)}{g''(u_1)} \frac{w''(u_1)}{\sum_j  y'''_j(u_1, u_2)}\\
+& = \frac{f_i''''(u_1, u_2)}{y''''(u_1, u_2)} \in F(u_1, u_2)\\
+&\Rightarrow F(u_1)(u_2) \subseteq F(u_1, u_2)\\\\
+\end{align*}
+\begin{align*}
+&\text{Let }a \in F(u_1, u_2)\\
+&a = \frac{f(u_1, u_2)}{g(u_1, u_2)}, f(x_1, x_2), g(x_1, x_2) \in F[x_1, x_2]\\
+& = \frac{\sum_{i, j} f_{ij}u_1^iu_2^j }{\sum_{l, k} f_{lk}u_1^lu_2^k}\\
+& =  \frac{\sum_{j} \left( \sum_i f_{ij}u_1^i \right) u_2^j }{\sum_{k} \left( \sum_l f_{lk}u_1^l \right) u_2^k}\\
+& = \frac{\sum_{j} f_j(u_1) u_2^j }{\sum_{k} g_l(u_1) u_2^k}\\
+& = \frac{\sum_{j} (f_j(u_1)/1) u_2^j }{\sum_{k} (g_l(u_1)/1) u_2^k}\\
+&\text{$1 \in F(u_1)$}\\
+& = \frac{f'(u_2)}{g'(u_2)} \text{ where $f'(x), g'(x ) \in F(u_1)[x]$}\\
+&\frac{f'(u_2)}{g'(u_2)} \in F(u_1)(u_2)\\
+&\Rightarrow F(u_1)(u_2) \supseteq F(u_1, u_2)\\
+\end{align*}
+$ \therefore F(u_1)(u_2) = F(u_1, u_2)$.\\
+\textbf{Proof of $(ii)$:}\\
+First we can do a similar proof to the previous part, and then apply induction to show that $F(u_1, ..., u_k) = F(u_1)(u_2)...(u_k)$.
+\begin{align*}
+&a \in F(u_1, ..., u_k)\\
+&a = \frac{f(u_1, ..., u_k)}{g(u_1, ..., u_k')}, \text{ where $f(x_1, ..., x_k), g(x_1, ..., x_k) \in F[x_1, ..., x_k]$}\\
+&a = \frac{\sum_{i_k} ... \sum_{i_1}f_{i_1 ... i_k}u_1^{i_1}...u_k^{i_k}}{\sum_{j_k} ... \sum_{j_1}f_{j_1 ... j_k}u_1^{j_1}...u_k'^{j_k}}\\
+&a = \frac{\sum_{i_k} \left( \sum{i_{k-1}}... \sum_{i_1}f_{i_1 ... i_k}u_1^{i_1}...u_{k-1}^{i_{k-1}} \right) u_k^{i_k}}{\sum_{j_k} \left( \sum_{j_{k-1}}... \sum_{j_1}f_{j_1 ... j_k}u_1^{j_1}...u_{k-1}^{j_{k-1}} \right) u_k^{j_k}}\\
+&a = \frac{\sum_{i_k} f_{i_k}(u_1, ..., u_{k-1}) u_k^{i_k}}{\sum_{j_k} g_{j_k}(u_1, ..., u_{k-1}) u_k^{j_k}}\\
+& = \frac{\sum_{i_k} f_{i_k}(u_1, ..., u_{k-1})/1 u_k^{i_k}}{\sum_{j_k} g_{j_k}(u_1, ..., u_{k-1})/1 u_k^{j_k}}\\
+&1 \in F[u_1, ..., u_{k-1}]\\
+&\Rightarrow a \in F(u_1, ..., u_{k-1})(u_k)\\
+&F(u_1, ..., u_k) \subseteq F(u_1, ..., u_{k-1})(u_k)\\
+\end{align*}
+\begin{align*}
+&\text{Let }a \in F(u_1, ..., u_{k-1})(u_k)\\
+&\Rightarrow a = f(u_k)g(u_k)^{-1}, f(x), g(x) \in F(u_1, ..., u_{k-1})[x]\\
+&\Rightarrow a = \frac{\sum_i \left( \frac{f'_i(u_1, ..., u_{k-1})}{g'_i(u_1, ..., u_{k-1})} \right) u_2^i}{ \sum_j \left( \frac{y'_j(u_1, ..., u_{k-1})}{w'_j(u_1, ..., u_{k-1})} \right) u_2^j}, \text{ where }f'_i(x), g'_i(x), y'_j(x), w'_j(x) \in F[x_1, ..., x_{k-1}]\\
+& = \frac{\sum_i \left( \frac{f''_i(u_1, ..., u_k)}{g'_i(u_1, ..., u_{k-1})} \right)}{ \sum_j \left( \frac{y''_j(u_1, ..., u_{k-1}, u_k)}{w'_j(u_1, ..., u_{k-1})} \right)}\\
+&\text{A common denominator can be found by taking the product of all $g'_i(u_1, ..., u_{k-1})$}:\\
+& = \frac{ \frac{\sum_i f'''_i(u_1, ..., u_k)}{g''(u_1, ..., u_{k-1})} }{\frac{\sum_j  y'''_j(u_1, ..., u_k)}{w''(u_1, ..., u_{k-1})}}\\
+& = \frac{\sum_i f'''_i(u_1, ..., u_k)}{g''(u_1, ..., u_{k-1})} \frac{w''(u_1, ..., u_{k-1})}{\sum_j  y'''_j(u_1, ..., u_k)}\\
+& = \frac{f_i''''(u_1, ..., u_k)}{y''''(u_1, ..., u_k)} \in F(u_1, ..., u_k)\\
+&\Rightarrow F(u_1, ..., u_{k-1})(u_k) \subseteq F(u_1, ..., u_k)\\\\
+\end{align*}
+So $F(u_1, ..., u_{k-1})(u_k) = F(u_1, ..., u_k)$. Now we can apply induction. With the base case proved in part $(i)$, we can see
+\begin{align*}
+&F(u_1, ..., u_k) = F(u_1)(u_2)...(u_k) \text{ For all $k$}\\
+\end{align*}
+Now we can prove that $F(U) = F(X_1)(X_2)...(X_S)$.
+\begin{align*}
+&\text{We can use induction here:}\\
+&\text{Base case:}\\
+&F(u_1, ... u_y)\text{, where $X_1 = \{u_1, ..., u_y\}$}\\
+&F(u_1, ... u_y) = F(X_1) \text{, so the base case holds.}\\
+&\\
+&\text{Inductive step:}\\
+&\text{WLOG Let }X_s = \{u_t, ..., u_r\} \text{ be the rightmost partition}\\
+&F(U) = F(u_1, ..., u_r)\\
+&= F(u_1)...(u_r)\\
+&\\
+&\text{Let the field $F' = F(u_1)...(u_{t-1})$ }\\
+& = F'(u_t)...(u_r)\\
+& = F'(X_s)\\
+&\text{From an induction hypothesis, we assume that }\\
+&F' = F(X_1)...(X_{s-1})\\
+\end{align*}
+$\therefore F(U) = F(X_1)(X_2)...(X_S)$.
+}
+
+\prob{3}{
+Show that if $u_1, ..., u_r$ are algebraically independent over $F$, then $F(u_1, ..., u_r)$ is isomorphic to the quotient field of $F[x_1, ..., x_r]$.\\
+}{\begin{align*}
+&\text{If $u_1, ..., u_r$ are algebraically independent over $F$}\\
+&\text{We can define }\psi : F(u_1, ..., u_r) \rightarrow F[x_1, ..., x_r]\\
+&\psi(f(u_1, ..., u_r)g^{-1}(u_1, ..., u_r)) = (f(x_1, ..., x_r), g(x_1, ..., x_r))\\
+&\text{Show that $\psi$ preserves operations}\\
+&\\
+&\text{If $u_1, ..., u_r$ are not algebraically independent over $F$, }\\
+&\text{Then there exists a polynomial $p(x_1, ..., x_r)$ such that }\\
+&p(u_1, ..., u_r) = 0\\
+&\text{let $deg(p) = d$ }\\
+&\text{For all $a$, if } def(a) \geq deg(p)\\
+&a = pq + r,\text{ where } deg(r) < deg(p)\\
+&\Rightarrow a(u_1, ..., u_r) = pq + r = (0)q + r = r(u_1, ..., u_r)\\
+&\text{So in $F(u_1, ..., u_r)$, there do not exist elements with exponent higher than $d$}\\
+&\text{While in $F[x_1, ..., x_r]$ polynomials can have any degree.}
+\end{align*}}
+
+
+\end{document}
