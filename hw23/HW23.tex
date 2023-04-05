@@ -45,7 +45,36 @@
 \prob{1}{
   Show that $p(x) = x^3 + x^2 + 2x + 1$ is irreducible over $\mathbb{Z}_3$. \\
 }{ \\
-  \admit
+  Let us assume for contradiction that we could factor out some $(x - \alpha)$ for $\alpha \in \mathbb{Z}$.
+
+  Then we know that $x^3 + x^2 + 2x + 1 = (x - \alpha)(\beta_2 x^2 + \beta_1 x + \beta_0)$.
+  Let us just destruct on possible values of $\alpha$
+
+  \textbf{$\alpha = 0$}: \\
+  Then clearly this will not work as $(x)(\beta_2 x^2 + \beta_1 x + \beta_0)$ will have no constant term, but one is required.
+
+  \textbf{$\alpha = 1$}: \\
+  Then we will have $(x - 1)(\beta_2 x^2 + \beta_1 x + \beta_0)$
+  and the constant term will force $\beta_0 = -1 \equiv 2$.
+
+  We will also know that $\beta_2 = 1$ (from monic polynomial).
+  This forces
+  $$(x - 1)(x^2 + \beta_1 x + 2) = x^3 + (2 + \beta_1 x^2) + (-\beta_1 x) + 1$$
+  $$= x^3 + x^2 + 2x + 1$$
+  This equality is irreconcilable for any possible $\beta_1$
+
+  \textbf{$\alpha = 2$}: \\
+  Then we will have $(x - 2)(\beta_2 x^2 + \beta_1 x + \beta_0)$
+  and the constant term will force $\beta_0 = -2 \equiv 1$.
+
+
+  We will also know that $\beta_2 = 1$ (from monic polynomial).
+  This forces
+  $$(x - 2)(x^2 + \beta_1 x + 1) = x^3 + (1 + \beta_1 x^2) + (-2*\beta_1 x) + 1$$
+  $$= x^3 + x^2 + 2x + 1$$
+  This equality is irreconcilable for any possible $\beta_1$
+
+  $$\therefore \text{$p(x)$ is irreducible over $\mathbb{Z}_3$}$$
 }
 
 \prob{2}{
@@ -75,7 +104,7 @@ Fix a prime $p$. Assume that for all $n \geq 1$, there exists an irreducible pol
   Let $\alpha \in K \supseteq \mathbb{Z}_2$ be a root of $x^2 + x + 1$.
   Show that $\mathbb{Z}_2(\alpha)$ is the splitting field for $x^2 + x + 1$. \\
 }{\\
-\admit
+  \admit
 }
 
 \end{document}
