@@ -1,0 +1,81 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\lr}[1]{
+  \langle #1 \rangle
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{23}
+
+\prob{1}{
+  Show that $p(x) = x^3 + x^2 + 2x + 1$ is irreducible over $\mathbb{Z}_3$. \\
+}{ \\
+  \admit
+}
+
+\prob{2}{
+  For $p(x)$ as in the previous problem, from class we know that there is a field $K$ containing $\mathbb{Z}_3$ and $\alpha \in K$ such that $p(\alpha) = 0$.
+  \begin{enumerate}[(i)]
+    \item How many elements are in the field $\mathbb{Z}_3(\alpha)$?
+    \item In the field $\mathbb{Z}_3(\alpha)$ calculate $A \cdot B$ and $A^{-1}$ for
+          $A := 1 + 2 \alpha + \alpha^2$ and $B := 2 + \alpha + 2 \alpha^2$
+  \end{enumerate}
+}{ \\
+  \admit
+}
+
+\prob{3}{
+  Give an example of a field with 125 elements. \\
+}{ \\
+  \admit
+}
+
+\prob{4}{
+Fix a prime $p$. Assume that for all $n \geq 1$, there exists an irreducible polynomial in $\mathbb{Z}_p[x]$ having degree $n$. Show that for all primes $p$ and $n \geq 1$, there exists a field with $p^n$ elements. \\
+}{ \\
+\admit
+}
+
+\prob{5}{
+  Let $\alpha \in K \supseteq \mathbb{Z}_2$ be a root of $x^2 + x + 1$.
+  Show that $\mathbb{Z}_2(\alpha)$ is the splitting field for $x^2 + x + 1$. \\
+}{\\
+\admit
+}
+
+\end{document}
