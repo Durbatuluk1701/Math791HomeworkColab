@@ -1,0 +1,80 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\lr}[1]{
+  \langle #1 \rangle
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{24}
+
+\prob{1}{
+  Write out addition and multiplication tables for the field $\mathbb{Z}_2(\alpha)$ is problem 5 of the previous assignment. \\
+}{\\
+  \admit
+}
+
+\prob{2}{
+  Now let $p(x)$ and $\alpha$ be as in problems 1 and 2 from Homework 23.
+  Determine whether or not $\mathbb{Z}_3(\alpha)$ the splitting field for $p(x)$
+  over $\mathbb{Z}_3$. \\
+}{\\
+  \admit
+}
+
+\prob{3}{
+  Let $p,q \in \mathbb{Z}$ be distinct prime numbers. Show that $[\mathbb{Q}(\sqrt{p}, \sqrt{q}) : \mathbb{Q}] = 4$. \\
+}{\\
+  \admit
+}
+
+\prob{4}{
+  Let $n \geq 2$ and set $\epsilon := e^{\frac{2\pi i}{n}}$.
+  \begin{enumerate}[(i)]
+    \item Show that $\mathbb{Q}(\epsilon)$ is the splitting field for $x^n - 1$ over $\mathbb{Q}$.
+    \item If $n = p$ is prime, find $[\mathbb{Q}(\epsilon) : \mathbb{Q}]$.
+          Hint: first make an educated guess for the minimal polynomila of $\epsilon$
+          over $\mathbb{Q}$, then show that the function $\phi : \mathbb{Q}[x] \rightarrow \mathbb{Q}[x]$ given by $\phi(f(x)) = f(x + 1)$ is an automorphism,
+          and then apply/consider Eisenstein's criterion.
+  \end{enumerate}
+}{\\
+  \admit
+}
+
+
+
+\end{document}
