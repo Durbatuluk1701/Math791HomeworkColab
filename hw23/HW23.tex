@@ -113,14 +113,16 @@
 \prob{4}{
 Fix a prime $p$. Assume that for all $n \geq 1$, there exists an irreducible polynomial in $\mathbb{Z}_p[x]$ having degree $n$. Show that for all primes $p$ and $n \geq 1$, there exists a field with $p^n$ elements. \\
 }{ \\
-\admit
+Using similar constructions as the past 2 problems,
+we can always just take the irreducible polynomial $p(x) \in \mathbb{Z}_p[x]$ with degree $n$, such that $p(p) = 0$.
+Then $|\mathbb{Z}_p[x](p)| = p^n$
 }
 
 \prob{5}{
   Let $\alpha \in K \supseteq \mathbb{Z}_2$ be a root of $x^2 + x + 1$.
   Show that $\mathbb{Z}_2(\alpha)$ is the splitting field for $x^2 + x + 1$. \\
 }{\\
-  \admit
+  We know that $x^2 + x + 1$ is irreducible, and if $\alpha$ is a root of $p(x) = x^2 + x + 1$, it is immediately known that $\mathbb{Z}_2(\alpha)$ is the splitting field of $x^2 + x + 1$.
 }
 
 \end{document}
