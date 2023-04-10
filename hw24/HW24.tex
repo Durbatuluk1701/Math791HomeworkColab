@@ -43,9 +43,10 @@
 \makeHWtitle{24}
 
 \prob{1}{
-  Write out addition and multiplication tables for the field $\mathbb{Z}_2(\alpha)$ is problem 5 of the previous assignment. \\
+  Write out addition and multiplication tables for the field $\mathbb{Z}_2(\alpha)$ in problem 5 of the previous assignment. \\
 }{\\
-  \admit
+  This problem is a bit confusing, we are supposed to not need to
+  any explicit terms for $\alpha$.
 }
 
 \prob{2}{
@@ -57,9 +58,13 @@
 }
 
 \prob{3}{
-  Let $p,q \in \mathbb{Z}$ be distinct prime numbers. Show that $[\mathbb{Q}(\sqrt{p}, \sqrt{q}) : \mathbb{Q}] = 4$. \\
+Let $p,q \in \mathbb{Z}$ be distinct prime numbers. Show that $[\mathbb{Q}(\sqrt{p}, \sqrt{q}) : \mathbb{Q}] = 4$. \\
 }{\\
-  \admit
+We know that the minimal polynomial $f(x)$ such that $f(\sqrt{p}) = 0$ is $f(x) = x^2 - p$. Thus $[\mathbb{Q}(\sqrt{p}) : \mathbb{Q}] = 2$.
+Additionally, we know that $g(x) \in \mathbb{Q}(\sqrt{p})[x]$ such that $g(\sqrt{q}) = 0$ is $g(x) = x^2 - q$. This is due to the primes being distinct, and this being a UFD.
+Thus $[\mathbb{Q}(\sqrt{p})(\sqrt{q}) : \mathbb{Q}(\sqrt{p})] = 2$
+$$\therefore [\mathbb{Q}(\sqrt{p}, \sqrt{q}) : \mathbb{Q}] = [\mathbb{Q}(\sqrt{p})(\sqrt{q}) : \mathbb{Q}(\sqrt{p})] \cdot [\mathbb{Q}(\sqrt{p}) : \mathbb{Q}]$$
+$$\therefore [\mathbb{Q}(\sqrt{p}, \sqrt{q}) : \mathbb{Q}] = 4$$
 }
 
 \prob{4}{
@@ -67,7 +72,7 @@
   \begin{enumerate}[(i)]
     \item Show that $\mathbb{Q}(\epsilon)$ is the splitting field for $x^n - 1$ over $\mathbb{Q}$.
     \item If $n = p$ is prime, find $[\mathbb{Q}(\epsilon) : \mathbb{Q}]$.
-          Hint: first make an educated guess for the minimal polynomila of $\epsilon$
+          Hint: first make an educated guess for the minimal polynomial of $\epsilon$
           over $\mathbb{Q}$, then show that the function $\phi : \mathbb{Q}[x] \rightarrow \mathbb{Q}[x]$ given by $\phi(f(x)) = f(x + 1)$ is an automorphism,
           and then apply/consider Eisenstein's criterion.
   \end{enumerate}
