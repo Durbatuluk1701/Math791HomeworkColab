@@ -1,0 +1,82 @@
+% This template retrieved from "https://guides.nyu.edu/LaTeX/templates"
+
+\documentclass[11pt]{article} 
+
+\usepackage{geometry} 
+\usepackage{amsmath}  
+\usepackage{graphicx} 
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\prob}[3]{\begin{flushleft}
+        \textbf{Problem #1}: \\
+        #2 
+		\textbf{Solution:} 
+		#3
+
+\end{flushleft}}
+
+\newcommand{\admit}{
+  \begin{flushright}
+    \textbf{Admitted}
+  \end{flushright}
+}
+
+\newcommand{\lr}[1]{
+  \langle #1 \rangle
+}
+
+\newcommand{\makeHWtitle}[1]{
+    \begin{center}
+    \Large{Homework #1 - MATH 791} 
+        \vspace{5pt}
+        
+        \normalsize{Will Thomas}
+        \vspace{5pt}
+    \end{center}
+}
+
+\begin{document}
+
+\makeHWtitle{26}
+
+\prob{1}{
+  Construct a field $K$ with 16 elements, and identify explicitly a subfield with 4 elements.
+
+  Hint: start by finding an irreducible polynomial of degree four over $\mathbb{Z}_2$. \\
+}{ \\
+  \admit
+}
+
+\prob{2}{
+  For $K$ as in problem 1, is there a subfield of $K$ with 8 elements? \\
+}{\\
+  \admit
+}
+
+\prob{3}{
+  Let $K$ be a field with $p^m$ elements, with $p$ prime and $m \geq 1$.
+  Let $\sigma : K \rightarrow K$ be given by $\sigma(\alpha) = \alpha^p$, for all $\alpha \in K$.
+  Show that $\sigma$ is an automorphism of $K$ fixing $\mathbb{Z}_p$.
+  We call $\sigma$ the \emph{Frobenius automorphism} of $K$. \\
+}{\\
+  \admit
+}
+
+\prob{4}{
+  For $K$ and $\sigma$ as in problem 3, what is $\sigma^j(\alpha)$, for $j \geq 1$ and $\alpha \in K$?
+  What is $\sigma^m$? \\
+}{\\
+  \admit
+}
+
+\prob{5}{
+  Let $K$ and $\sigma$ be as in problem 3. Supposed $n \mid m$. Show that $F := \{ \alpha \in K \mid \sigma^n(\alpha) = \alpha \}$ is the unique subfield of $K$ containing $p^n$ elements.\\
+}{\\
+  \admit
+}
+
+
+\end{document}
